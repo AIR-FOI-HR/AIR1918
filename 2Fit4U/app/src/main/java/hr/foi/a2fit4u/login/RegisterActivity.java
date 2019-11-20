@@ -24,6 +24,8 @@ public class RegisterActivity extends AppCompatActivity {
     void register(){
         //TODO implement register
 
+
+
         Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(loginIntent);
     }

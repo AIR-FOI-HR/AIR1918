@@ -49,5 +49,41 @@ public class GetData {
         return data;
     }
 
+    public Boolean checkUser(String username, String password)
+    {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connections();
+            if(connect == null){
+                Log.d("GetData", "Greška sa spajanjem na bazu");
 
+            }
+            else{
+                Log.d("GetData","Izvršavam upit");
+                String query = "SELECT UserName,Password FROM [User] WHERE UserName = "+ username;
+                Statement stat = connect.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                ConnectionResult = "Successful";
+                isSucess = true;
+
+                if(rs.next())
+                {
+                    String userPassword = rs.getString("Password");
+                    if(userPassword == password){
+                        connect.close();
+                        return true;
+                    }
+                }
+                connect.close();
+                return false;
+
+            }
+
+        }catch (Exception ex){
+            isSucess = false;
+            ConnectionResult = ex.getMessage();
+        }
+        return false;
+    }
 }

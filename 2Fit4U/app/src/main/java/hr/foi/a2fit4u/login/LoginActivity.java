@@ -29,7 +29,11 @@ public class LoginActivity extends AppCompatActivity {
     void login(){
         // TODO implement login
 
+
         GetData getData = new GetData();
+        if(getData.checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString())){
+            Log.d("LoginActivity","Uspjesan login");
+        }
         Log.d(TAG, "login: " + getData.getData());
         Map<String,String> mapa = getData.getData();
         for (Map.Entry<String,String> entry : mapa.entrySet())
