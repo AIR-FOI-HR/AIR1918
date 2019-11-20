@@ -16,4 +16,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="confirm_password">Confirm password</string>
     <string name="e_mail">E-mail</string>
+    <string name="current_weight">Current weight:</string>
+    <string name="refresh_weight">Refresh weight</string>
 </resources>
