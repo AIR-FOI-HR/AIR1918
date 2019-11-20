@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import hr.foi.a2fit4u.GetData;
 import hr.foi.a2fit4u.R;
+import hr.foi.a2fit4u.weight.WeightActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,12 +28,14 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_login)
     void login(){
-        // TODO implement login
-
-
         GetData getData = new GetData();
         if(getData.checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString())){
             Log.d("LoginActivity","Uspjesan login");
+
+            Intent weightIntent = new Intent(LoginActivity.this, WeightActivity.class);
+            weightIntent.putExtra("USER_ID",getData.getUserID(mTextUsername.getText().toString()));
+            startActivity(weightIntent);
+
         }
 
     }

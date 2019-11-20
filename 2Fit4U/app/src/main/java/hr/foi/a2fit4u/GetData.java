@@ -133,16 +133,20 @@ public class GetData {
             }
             else{
                 Log.d("GetData","Izvršavam upit");
-                String query = "SELECT UserName,Password FROM [Weight] WHERE ID_user = '"+ idUser+"'";
+                String query = "SELECT Weight FROM [Weight] WHERE ID_user = '"+ idUser+"'";
                 Statement stat = connect.createStatement();
                 ResultSet rs = stat.executeQuery(query);
-                rs.afterLast();
 
 
-                while(rs.previous())
+
+                while(rs.next())
                 {
-                    connect.close();
-                    return Float.parseFloat(rs.getString("Weight"));
+                    if(rs.isLast())
+                    {
+                        String tezina = rs.getString("Weight");
+                        connect.close();
+                        return Float.parseFloat(tezina);
+                    }
                 }
 
                 ConnectionResult = "Successful";
@@ -152,7 +156,7 @@ public class GetData {
             }
 
         }catch (Exception ex){
-            Log.d("GetData","Greška! "+ ex.getMessage());
+            Log.d("GetData-getWeight","Greška! "+ ex.getMessage());
             isSucess = false;
             ConnectionResult = ex.getMessage();
         }
@@ -187,7 +191,7 @@ public class GetData {
             }
 
         }catch (Exception ex){
-            Log.d("GetData","Greška! "+ ex.getMessage());
+            Log.d("GetData-getUserID","Greška! "+ ex.getMessage());
             isSucess = false;
             ConnectionResult = ex.getMessage();
         }
