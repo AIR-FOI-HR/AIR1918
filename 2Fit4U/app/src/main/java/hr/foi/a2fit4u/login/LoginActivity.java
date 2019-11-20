@@ -34,14 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         if(getData.checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString())){
             Log.d("LoginActivity","Uspjesan login");
         }
-        Log.d(TAG, "login: " + getData.getData());
-        Map<String,String> mapa = getData.getData();
-        for (Map.Entry<String,String> entry : mapa.entrySet())
-        {
-            mTextUsername.setText(entry.getValue());
-            mTextPassword.setText(entry.getKey());
-            Log.d("BAZAA", entry.getValue() );
-        }
+
     }
 
     @OnClick(R.id.textview_register)

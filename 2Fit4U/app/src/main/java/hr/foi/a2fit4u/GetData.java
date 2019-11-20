@@ -51,6 +51,11 @@ public class GetData {
 
     public Boolean checkUser(String username, String password)
     {
+
+        return false;
+    }
+
+    public void registerUser(String username, String email, String password){
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connect = connectionHelper.connections();
@@ -60,23 +65,19 @@ public class GetData {
             }
             else{
                 Log.d("GetData","Izvršavam upit");
-                String query = "SELECT UserName,Password FROM [User] WHERE UserName = "+ username;
+                String query = "INSERT INTO [User] (UserName, Email, Password) VALUES ('"+username
+                        +"','"+email+"','"+password+"')";
                 Statement stat = connect.createStatement();
                 ResultSet rs = stat.executeQuery(query);
 
                 ConnectionResult = "Successful";
                 isSucess = true;
 
-                if(rs.next())
+                if(rs.rowInserted())
                 {
-                    String userPassword = rs.getString("Password");
-                    if(userPassword == password){
-                        connect.close();
-                        return true;
-                    }
+                    Log.d("GetData", "Dodan novi korisnik");
                 }
                 connect.close();
-                return false;
 
             }
 
@@ -84,6 +85,5 @@ public class GetData {
             isSucess = false;
             ConnectionResult = ex.getMessage();
         }
-        return false;
     }
 }
