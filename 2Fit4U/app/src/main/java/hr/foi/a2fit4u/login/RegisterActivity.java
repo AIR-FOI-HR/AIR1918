@@ -2,6 +2,7 @@ package hr.foi.a2fit4u.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
@@ -22,6 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
     @OnClick(R.id.button_register)
     void register(){
         //TODO implement register
+
+        Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(loginIntent);
     }
 
     @Override

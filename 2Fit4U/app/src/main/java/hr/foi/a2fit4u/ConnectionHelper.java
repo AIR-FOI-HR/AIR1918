@@ -29,6 +29,7 @@ public class ConnectionHelper {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             ConnectionURL = "jdbc:jtds:sqlserver://" + IP + ";databaseName="+ DB + ";user=" + DBUserName + ";password=" +DBPassword + ";";
             connection = DriverManager.getConnection(ConnectionURL);
+            Log.d("DARIO", "BAZA JE SPOJENA");
 
         }catch(SQLException se){
             Log.e("Greška SQL",se.getMessage());}
