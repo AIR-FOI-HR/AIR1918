@@ -158,4 +158,39 @@ public class GetData {
         }
         return 0;
     }
+
+    public int getUserID(String username)
+    {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connections();
+            if(connect == null){
+                Log.d("GetData", "Greška sa spajanjem na bazu");
+
+            }
+            else{
+                Log.d("GetData","Izvršavam upit");
+                String query = "SELECT User_ID FROM [User] WHERE UserName = '"+ username+"'";
+                Statement stat = connect.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                if(rs.next())
+                {
+                    connect.close();
+                    return Integer.parseInt(rs.getString("User_ID"));
+                }
+
+                ConnectionResult = "Successful";
+                isSucess = true;
+                connect.close();
+
+            }
+
+        }catch (Exception ex){
+            Log.d("GetData","Greška! "+ ex.getMessage());
+            isSucess = false;
+            ConnectionResult = ex.getMessage();
+        }
+        return 0;
+    }
 }
