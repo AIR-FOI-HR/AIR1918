@@ -51,7 +51,42 @@ public class GetData {
 
     public Boolean checkUser(String username, String password)
     {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connections();
+            if(connect == null){
+                Log.d("GetData", "Greška sa spajanjem na bazu");
 
+            }
+            else{
+                Log.d("GetData","Izvršavam upit");
+                String query = "SELECT UserName,Password FROM [User] WHERE UserName = '"+ username+"'";
+                Statement stat = connect.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                ConnectionResult = "Successful";
+                isSucess = true;
+
+                Log.d("GetData", "Upit izvršen");
+                if(rs.next())
+                {
+                    Log.d("GetData","Pronađen korisnik!");
+                    String userPassword = rs.getString("Password");
+                    if(userPassword.equals(password)){
+                        connect.close();
+                        return true;
+                    }
+                }
+                connect.close();
+                return false;
+
+            }
+
+        }catch (Exception ex){
+            Log.d("GetData","Greška! "+ ex.getMessage());
+            isSucess = false;
+            ConnectionResult = ex.getMessage();
+        }
         return false;
     }
 
