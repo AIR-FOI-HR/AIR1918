@@ -121,4 +121,41 @@ public class GetData {
             ConnectionResult = ex.getMessage();
         }
     }
+
+    public float getWeight(int idUser)
+    {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connect = connectionHelper.connections();
+            if(connect == null){
+                Log.d("GetData", "Greška sa spajanjem na bazu");
+
+            }
+            else{
+                Log.d("GetData","Izvršavam upit");
+                String query = "SELECT UserName,Password FROM [Weight] WHERE ID_user = '"+ idUser+"'";
+                Statement stat = connect.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+                rs.afterLast();
+
+
+                while(rs.previous())
+                {
+                    connect.close();
+                    return Float.parseFloat(rs.getString("Weight"));
+                }
+
+                ConnectionResult = "Successful";
+                isSucess = true;
+                connect.close();
+
+            }
+
+        }catch (Exception ex){
+            Log.d("GetData","Greška! "+ ex.getMessage());
+            isSucess = false;
+            ConnectionResult = ex.getMessage();
+        }
+        return 0;
+    }
 }
