@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.textview_register)
     void openRegisterForm(){
-        // TODO implement register
-        Intent registerIntent = new Intent(LoginActivity.this,)
+        Intent registerIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+        startActivity(registerIntent);
     }
 
     @Override
