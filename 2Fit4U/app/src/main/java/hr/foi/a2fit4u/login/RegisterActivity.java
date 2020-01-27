@@ -17,7 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @BindView(R.id.edittext_username)
     EditText mTextUsername;
-    @BindView(R.id.edittext_email)
+    /*@BindView(R.id.edittext_email)
     EditText mTextEmail;
     @BindView(R.id.edittext_password)
     EditText mTextPassword;
@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         //}
 
 
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
