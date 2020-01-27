@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.edittext_password)
     EditText mTextPassword;
 
-    @OnClick(R.id.button_login)
+    /*@OnClick(R.id.button_login)
     void login(){
         GetData getData = new GetData();
         if(getData.checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString())){
@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     void openRegisterForm(){
         Intent registerIntent = new Intent(LoginActivity.this,RegisterActivity.class);
         startActivity(registerIntent);
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
