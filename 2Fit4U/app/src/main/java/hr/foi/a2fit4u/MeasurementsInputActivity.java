@@ -1,7 +1,6 @@
 package hr.foi.a2fit4u;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +15,8 @@ public class MeasurementsInputActivity extends AppCompatActivity {
     String vratString = (String) vrat.getText().toString();
     float vratFloat = Float.parseFloat(vratString);*/
 
-    @OnClick(R.id.btnSpremi)
-    void send(){
+    @OnClick(R.id.btnSpremiMjere)
+    void insertMeasurements(){
 
         SendData sendData = new SendData();
         final EditText vrat = (EditText) findViewById(R.id.newNeck);
@@ -35,12 +34,12 @@ public class MeasurementsInputActivity extends AppCompatActivity {
         System.out.println(vratFloat);
 
         sendData.insertNewMeasurements(1, 2, vratFloat);
-        sendData.insertNewMeasurements(1, 2, strukFloat);
-        sendData.insertNewMeasurements(1, 2, bokoviFloat);
+        sendData.insertNewMeasurements(1, 3, strukFloat);
+        sendData.insertNewMeasurements(1, 4, bokoviFloat);
 
-        vrat.setText("");
+        /*vrat.setText("");
         struk.setText("");
-        bokovi.setText("");
+        bokovi.setText("");*/
     }
 
 
