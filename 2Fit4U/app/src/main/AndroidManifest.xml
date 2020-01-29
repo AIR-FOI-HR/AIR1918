@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".weight.WeightActivity"></activity>
         <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".login.LoginActivity">
+        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".MeasurementsInputActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
