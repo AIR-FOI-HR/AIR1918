@@ -48,7 +48,7 @@
         android:orientation="vertical"/>
 
     <EditText
-        android:id="@+id/newNeck"
+        android:id="@+id/newTezina"
         android:textSize="16dp"
         android:layout_width="match_parent"
         android:layout_marginTop="280dp"
@@ -75,7 +75,7 @@
 
     <!--gumbichi-->
     <TextView
-        android:id="@+id/btnSpremi"
+        android:id="@+id/btnSpremiTezinu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="130dp"

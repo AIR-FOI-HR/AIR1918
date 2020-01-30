@@ -13,16 +13,16 @@ import hr.foi.a2fit4u.R;
 
 public class WeightActivity extends AppCompatActivity {
 
-    @BindView(R.id.textview_weight)
-    TextView mTextViewCurrentWeight;
+    //@BindView(R.id.textview_weight)
+    //TextView mTextViewCurrentWeight;
 
-    @OnClick(R.id.button_refresh_weight)
+    //@OnClick(R.id.button_refresh_weight)
     void refreshWeight()
     {
         GetData getData = new GetData();
         //String currentWeight = "" + getData.getWeight(Integer.parseInt(getIntent().getStringExtra("USER_ID")));
         String currentWeight = "" + getData.getWeight(1);
-        mTextViewCurrentWeight.setText(currentWeight);
+        //mTextViewCurrentWeight.setText(currentWeight);
     }
 
     @Override

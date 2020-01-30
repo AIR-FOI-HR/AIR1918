@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,159 +9,162 @@
     android:gravity="center_horizontal"
     android:background="#fff">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:background="@drawable/signinbg"
-        android:scaleType="centerCrop"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@drawable/signinbg"
+            android:scaleType="centerCrop"/>
 
-    <LinearLayout
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="80dp"
+            android:layout_centerHorizontal="true"/>
 
-        <TextView
-            android:id="@+id/header"
+        <LinearLayout
+            android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New measurements"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New measurements"
+                android:textColor="#fff"
+                android:textSize="34dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_above="@+id/acc"
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <EditText
+            android:id="@+id/newNeck"
+            android:textSize="16dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Neck"
+            android:layout_marginLeft="46dp"
+            android:textColorHint="@color/colorhint"
+            android:textColor="@color/colortext"
+            android:maxLength="12"
+            android:background="#0000"
+            android:padding="16dp"
+            android:gravity="left"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginTop="350dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#dad8d8"/>
+
+        <EditText
+            android:id="@+id/newWaist"
+            android:textSize="16dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="350dp"
+            android:layout_height="wrap_content"
+            android:hint="Waist"
+            android:layout_marginLeft="46dp"
+            android:textColorHint="@color/colorhint"
+            android:textColor="@color/colortext"
+            android:maxLength="12"
+            android:background="#0000"
+            android:padding="16dp"
+            android:gravity="left"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginTop="400dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#dad8d8"/>
+        <EditText
+            android:id="@+id/newHips"
+            android:textSize="16dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="400dp"
+            android:layout_height="wrap_content"
+            android:hint="Hips"
+            android:layout_marginLeft="46dp"
+            android:textColorHint="@color/colorhint"
+            android:textColor="@color/colortext"
+            android:maxLength="12"
+            android:background="#0000"
+            android:padding="16dp"
+            android:gravity="left"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginTop="450dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#dad8d8"/>
+        <!--BodiFet-->
+        <TextView
+            android:id="@+id/BodyFat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="500dp"
+            android:layout_marginRight="290dp"
+            android:layout_marginBottom="25dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="Body fat %:"
+            android:textColor="#aaa"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/IzracunBodyFat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="530dp"
+            android:layout_marginRight="290dp"
+            android:layout_marginBottom="25dp"
+            android:background="#fff"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="_____"
+            android:textColor="#aaa"
+            android:textSize="16dp" />
+        <!--gumbich-->
+        <TextView
+            android:id="@+id/btnSpremiMjere"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="620dp"
+            android:layout_marginRight="140dp"
+            android:layout_marginBottom="25dp"
+            android:background="#2b73e1"
+            android:gravity="center"
+            android:padding="9dp"
+            android:text="SAVE"
             android:textColor="#fff"
-            android:textSize="34dp"
-            android:gravity="center"/>
-    </LinearLayout>
+            android:textSize="16dp" />
+    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_above="@+id/acc"
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"/>
-
-    <EditText
-        android:id="@+id/newNeck"
-        android:textSize="16dp"
-        android:layout_width="match_parent"
-        android:layout_marginTop="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Neck"
-        android:layout_marginLeft="46dp"
-        android:textColorHint="@color/colorhint"
-        android:textColor="@color/colortext"
-        android:maxLength="12"
-        android:background="#0000"
-        android:padding="16dp"
-        android:gravity="left"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginTop="350dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        android:background="#dad8d8"/>
-
-    <EditText
-        android:id="@+id/newWaist"
-        android:textSize="16dp"
-        android:layout_width="match_parent"
-        android:layout_marginTop="350dp"
-        android:layout_height="wrap_content"
-        android:hint="Waist"
-        android:layout_marginLeft="46dp"
-        android:textColorHint="@color/colorhint"
-        android:textColor="@color/colortext"
-        android:maxLength="12"
-        android:background="#0000"
-        android:padding="16dp"
-        android:gravity="left"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginTop="400dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        android:background="#dad8d8"/>
-    <EditText
-        android:id="@+id/newHips"
-        android:textSize="16dp"
-        android:layout_width="match_parent"
-        android:layout_marginTop="400dp"
-        android:layout_height="wrap_content"
-        android:hint="Hips"
-        android:layout_marginLeft="46dp"
-        android:textColorHint="@color/colorhint"
-        android:textColor="@color/colortext"
-        android:maxLength="12"
-        android:background="#0000"
-        android:padding="16dp"
-        android:gravity="left"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginTop="450dp"
-        android:layout_height="1dp"
-        android:layout_marginBottom="10dp"
-        android:background="#dad8d8"/>
-    <!--BodiFet-->
-    <TextView
-        android:id="@+id/BodyFat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginRight="290dp"
-        android:layout_marginBottom="25dp"
-        android:background="fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="Body fat %:"
-        android:textColor="#aaa"
-        android:textSize="16dp" />
-    <TextView
-        android:id="@+id/IzracunBodyFat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="530dp"
-        android:layout_marginRight="290dp"
-        android:layout_marginBottom="25dp"
-        android:background="fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="_____"
-        android:textColor="#aaa"
-        android:textSize="16dp" />
-    <!--gumbich-->
-    <TextView
-        android:id="@+id/btnSpremi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginRight="140dp"
-        android:layout_marginBottom="25dp"
-        android:background="#2b73e1"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="SAVE"
-        android:textColor="#fff"
-        android:textSize="16dp" />
-
-
-
-</RelativeLayout>
+</ScrollView>
