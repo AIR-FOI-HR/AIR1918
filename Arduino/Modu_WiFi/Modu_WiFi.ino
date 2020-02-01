@@ -1,14 +1,12 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
  
-const char* ssid = "ExperA_1";
-const char* password = "ExperA042";
+const char* ssid = "FTezak";
+const char* password = "12341234";
 
-int weight = 0;
-String tag = "12341234";
+String data="";
+char rc;
 
-
- 
 void setup () {
  
   Serial.begin(115200);
@@ -32,57 +30,53 @@ void setup () {
  
 void loop() {
 
- if (Serial.available() > 0) 
+ 
+
+ if (Serial.available()) 
  {
-  
- 
-    Serial.println("Cekam...");
-    byte b1 = Serial.read();
-    byte b2 = Serial.read();
+  delay(20);
+  while(Serial.available())
+{
+  rc = Serial.read();
+  data.concat(rc);
+}
+Serial.println(data);
 
-    weight = b1 * 256 + b2;
-    
-    Serial.println(weight);
-    delay(1000);
-    
+ }
  
-
-  if(weight != 0 && tag != "")
+  if(data != "")
   {
     Serial.print("Dobio sam!");
-    Serial.println(weight);
+    Serial.println(data);
     
-
-
-    if (WiFi.status() == WL_CONNECTED && tag != "" && weight != 0) { //Check WiFi connection status
+    if (WiFi.status() == WL_CONNECTED && data != "") { 
    Serial.println("Saljem...");
-    HTTPClient http;  //Declare an object of class HTTPClient
+    HTTPClient http;  
      
-    http.begin("http://www.pamtim.com/Weight/Insert/?Data=" + tag + "-" + String(weight) + "-1341996");  //Specify request destination
-    int httpCode = http.GET();                                                                  //Send the request
+    http.begin("http://pamtim.com/Weight/insert/?data=" + data);  
+
+    int httpCode = http.GET();  // pošalji zahtjev
 
     delay(3000);
 
     Serial.println(httpCode);
      
-    if (httpCode > 0) { //Check the returning code
+    if (httpCode > 0) { 
      
-      String payload = http.getString();   //Get the request response payload
-      Serial.println(payload);                     //Print the response payload
+      String payload = http.getString();   
+      Serial.println(payload);                     
        Serial.println("Poslano!");
     }
     else{
-      Serial.println("Zajeb...");
+      Serial.println("Greška");
     }
    
-    http.end();   //Close connection
+    http.end();   //Zatvori konekciju
 
-    
-
-    weight = 0;
+    data = "";
    Serial.println("Obrisani podaci!");
     }   
   }
  }
    
-}
+
