@@ -42,4 +42,5 @@ dependencies {
 
     implementation project(path: ':core')
     implementation project(path: ':chartview')
+    implementation project(path: ':tableview')
 }
