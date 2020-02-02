@@ -18,4 +18,6 @@
     <string name="e_mail">E-mail</string>
     <string name="current_weight">Current weight:</string>
     <string name="refresh_weight">Refresh weight</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 </resources>
