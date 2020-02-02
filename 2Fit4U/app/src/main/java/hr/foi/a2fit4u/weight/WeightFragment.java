@@ -8,11 +8,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import hr.foi.a2fit4u.R;
 
 public class WeightFragment extends Fragment {
+
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+
+    private List<WeightItem> weightItemList;
 
     @Nullable
     @Override
@@ -25,5 +36,20 @@ public class WeightFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ButterKnife.bind(this,view);
+
+        recyclerView = view.findViewById(R.id.weight_recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        weightItemList = new ArrayList<>();
+
+        for(int i=0;i<=10;i++)
+        {
+            weightItemList.add(new WeightItem("BOK "+i,"2020-02-0"+i));
+        }
+
+        adapter = new WeightRecyclerAdapter(weightItemList,view.getContext());
+
+        recyclerView.setAdapter(adapter);
     }
 }

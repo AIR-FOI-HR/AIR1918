@@ -1,11 +1,11 @@
 package hr.foi.a2fit4u.weight;
 
-public class WeightViewHolder {
+public class WeightItem {
 
     private String weightValue;
     private String dateValue;
 
-    public WeightViewHolder(String weightValue, String dateValue) {
+    public WeightItem(String weightValue, String dateValue) {
         this.weightValue = weightValue;
         this.dateValue = dateValue;
     }
