@@ -27,4 +27,7 @@
     <string name="login_invalid_credentials">Invalid credentials</string>
     <string name="register_hint_username">Username</string>
     <string name="register_hint_email">Email</string>
+    <string name="register_hint_password">Password</string>
+    <string name="register_signup">Sign up</string>
+    <string name="register_button_signin_here">Sign in here</string>
 </resources>
