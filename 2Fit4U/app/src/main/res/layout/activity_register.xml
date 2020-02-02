@@ -54,14 +54,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/register_field_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
             android:background="#0000"
             android:gravity="left"
 
-            android:hint="Username"
+            android:hint="@string/register_hint_username"
             android:maxLength="12"
             android:padding="16dp"
             android:textColor="@color/colortext"
@@ -77,13 +77,13 @@
             android:background="#dad8d8" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/register_field_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
             android:background="#0000"
             android:gravity="left"
-            android:hint="Email"
+            android:hint="@string/register_hint_email"
             android:maxLength="12"
             android:padding="16dp"
             android:textColor="@color/colortext"
@@ -99,7 +99,7 @@
             android:background="#dad8d8" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/register_field_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
