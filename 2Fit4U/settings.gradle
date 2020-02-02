@@ -1,2 +1,2 @@
-include ':app', ':core'
+include ':app', ':core', ':chartview'
 rootProject.name='2Fit4U'
