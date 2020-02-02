@@ -12,7 +12,10 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.core.util.Util;
 import com.google.android.material.navigation.NavigationView;
+
+import hr.foi.a2fit4u.managers.DataPresenterManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     NavigationView navigationView;
-    //private Util util = new Util();
+    private Util util = new Util();
 
     FragmentManager fragmentManager;
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         initializeLayout();
-        //initializeDataPresenterManager();
+        initializeDataPresenterManager();
 
     }
 
@@ -52,12 +55,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.syncState();
     }
 
-    /*private void initializeDataPresenterManager()
+    private void initializeDataPresenterManager()
     {
         DataPresenterManager dataPresenterManager = DataPresenterManager.getInstance();
         dataPresenterManager.setDrawerDependencies(this, navigationView, drawerLayout, R.id.dynamic_group);
         dataPresenterManager.startMainModule();
-    }*/
+    }
 
     // mozda nepotrebno, za settingse
     /*@Override
@@ -136,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //startActivity(intent2);
                 //handle dynamic cases
             default:
-                //DataPresenterManager.getInstance().selectNavigationItem(menuItem);
+                DataPresenterManager.getInstance().selectNavigationItem(menuItem);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
