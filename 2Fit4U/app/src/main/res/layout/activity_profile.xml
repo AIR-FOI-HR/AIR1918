@@ -1,256 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity"
-    android:orientation="vertical"
+    android:background="#fff"
     android:gravity="center_horizontal"
-    android:background="#fff">
+    android:orientation="vertical"
+    tools:context=".login.LoginActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="170dp"
         android:background="@drawable/signinbg"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:layout_gravity="center"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"/>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
-        android:layout_marginTop="60dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="PROFILE"
             android:textColor="#fff"
-            android:textSize="34dp"
-            android:gravity="center"/>
+            android:textSize="34dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_above="@+id/acc"
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:layout_above="@+id/acc"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <!--gumbich-->
+
+    <!--Izmjerene mjere-->
 
     <TextView
         android:id="@+id/AddNewMeasure"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="530dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="242dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="548dp"
         android:background="#2b73e1"
         android:gravity="center"
         android:padding="9dp"
         android:text="ADD NEW MEASUREMENTS"
         android:textColor="#fff"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/MeasureButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="610dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="158dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="608dp"
         android:background="#2b73e1"
         android:gravity="center"
         android:padding="9dp"
         android:text="WEIGHT IN"
         android:textColor="#fff"
-        android:textSize="16dp" />
-    <!--Izmjerene mjere-->
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/neck"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="340dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="73dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="248dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="Neck:"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/neckLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="260dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="64dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="248dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="______"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/waist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="81dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="248dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="Waist:"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/waistLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="74dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="252dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="______"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/hips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="248dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="Hips:"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/hipsLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="248dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="______"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/bodyFat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="101dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="300dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="Body fat:"
         android:textColor="#aaa"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--CURRENT I GOAL-->
+
     <TextView
         android:id="@+id/bodyFatLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="69dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="300dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="______"
         android:textColor="#aaa"
-        android:textSize="16dp" />
-    <!--CURRENT I GOAL-->
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.616"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/CurrentWeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginRight="250dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="156dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="424dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="CURRENT WEIGHT:"
         android:textColor="#222"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/CurrentWeightBrojKG"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="81dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="424dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="_____KG"
         android:textColor="#222"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/GoalWeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginRight="250dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="126dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="464dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="GOAL WEIGHT:"
         android:textColor="#222"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/GoalWeightBrojKG"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="81dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="464dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
         android:text="_____KG"
         android:textColor="#222"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="113dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="118dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
