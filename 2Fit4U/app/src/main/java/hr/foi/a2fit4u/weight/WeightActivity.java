@@ -3,11 +3,8 @@ package hr.foi.a2fit4u.weight;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import hr.foi.a2fit4u.GetData;
 import hr.foi.a2fit4u.R;
 
@@ -28,7 +25,7 @@ public class WeightActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weight);
+        setContentView(R.layout.fragment_weight);
 
         ButterKnife.bind(this);
         refreshWeight();

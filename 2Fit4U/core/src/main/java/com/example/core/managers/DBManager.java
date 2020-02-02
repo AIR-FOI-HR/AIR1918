@@ -50,10 +50,23 @@ public class DBManager {
         catch (Exception ex){Log.e("Exception error", ex.getMessage());}
     }
 
+    private void CheckConnection()
+    {
+        try {
+            if(connection.isClosed()){
+                Connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void InsertData(int dataType, float value )
     {
         int userID = AccountManager.getInstance().getUser().getId();
         String currentDate = new SimpleDateFormat("yyyy-mm-dd", Locale.getDefault()).format(new Date());
+
+        CheckConnection();
 
         try{
             if(connection == null){
@@ -77,12 +90,14 @@ public class DBManager {
     //NFC insert
     public void InsertData(int dataType, String value)
     {
-
+        CheckConnection();
     }
 
     //Register user
     public void InsertData(String username, String email, String password)
     {
+        CheckConnection();
+
         try {
             if(connection == null){
                 Log.d("DBManager", "Greška sa spajanjem na bazu");
@@ -110,6 +125,7 @@ public class DBManager {
 
     public String getData(int dataType)
     {
+        CheckConnection();
         //TODO
         // switch ovdje
         // 1 - invalid username
@@ -121,6 +137,7 @@ public class DBManager {
     public User getData(String username, String password)
     {
         User user = null;
+        CheckConnection();
         try {
 
             if(connection == null){

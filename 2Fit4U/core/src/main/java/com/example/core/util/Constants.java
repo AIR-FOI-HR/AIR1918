@@ -7,4 +7,7 @@ public class Constants {
     public static int DATA_TYPE_WAIST = 3;
     public static int DATA_TYPE_HIPS = 4;
     public static int DATA_TYPE_HEIGHT = 5;
+
+    public static final int NAVIGATION_SETTINGS = 10;
+    public static final int NAVIGATION_LOGOUT = 11;
 }

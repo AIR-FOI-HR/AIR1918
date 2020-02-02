@@ -13,10 +13,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.core.CurrentActivity;
+import com.example.core.managers.AccountManager;
 import com.example.core.util.Util;
 import com.google.android.material.navigation.NavigationView;
 
+import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
+import com.example.core.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -131,15 +134,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(menuItem.getItemId())
         {
             //handle static cases
-            case R.id.home:
+            case R.id.menu_profile:
                 //do something
                 //Intent intent = new Intent(this,TableActivity.class);
                 //startActivity(intent);
                 break;
-            case R.id.settings:
+            case R.id.menu_weight:
+                break;
+            case R.id.menu_measurements:
+                break;
+            case R.id.menu_nfc:
+                break;
+            case Constants.NAVIGATION_SETTINGS:
                 //Intent intent2 = new Intent(this,GraphActivity.class);
                 //startActivity(intent2);
                 //handle dynamic cases
+                break;
+            case Constants.NAVIGATION_LOGOUT:
+                AccountManager.getInstance().logOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
             default:
                 DataPresenterManager.getInstance().selectNavigationItem(menuItem);
         }

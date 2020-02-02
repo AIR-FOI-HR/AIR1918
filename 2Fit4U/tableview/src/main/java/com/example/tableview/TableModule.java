@@ -83,7 +83,7 @@ public class TableModule extends Fragment implements DataPresenter {
 
     @Override
     public Drawable getIcon(Context context) {
-        return context.getDrawable(android.R.drawable.ic_menu_help);
+        return context.getDrawable(R.drawable.icon_tables);
     }
 
     @Override
