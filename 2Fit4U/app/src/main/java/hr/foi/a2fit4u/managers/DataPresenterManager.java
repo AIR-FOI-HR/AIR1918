@@ -8,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.chartview.ChartModule;
 import com.example.core.interfaces.DataPresenter;
 import com.example.core.managers.DataManager;
 import com.google.android.material.navigation.NavigationView;
@@ -31,7 +32,7 @@ public class DataPresenterManager {
 
     private DataPresenterManager() {
         modules = new ArrayList<>();
-        //modules.add(new ChartModule());
+        modules.add(new ChartModule());
     }
 
     public void setDrawerDependencies(AppCompatActivity activity, NavigationView navigationView, DrawerLayout drawerLayout, int dynamicGroupId)
