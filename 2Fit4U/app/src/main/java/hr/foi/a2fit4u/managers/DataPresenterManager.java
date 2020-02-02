@@ -82,6 +82,7 @@ public class DataPresenterManager {
         fragmentManager.beginTransaction()
                 .replace(R.id.container_fragment, module.getFragment())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("")
                 .commit();
 
         DataManager.getInstance().sendData(module);

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.core.CurrentActivity;
 import com.example.core.managers.AccountManager;
@@ -19,6 +20,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
+import hr.foi.a2fit4u.weight.WeightFragment;
+
 import com.example.core.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -140,6 +143,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //startActivity(intent);
                 break;
             case R.id.menu_weight:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new WeightFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
                 break;
             case R.id.menu_measurements:
                 break;
