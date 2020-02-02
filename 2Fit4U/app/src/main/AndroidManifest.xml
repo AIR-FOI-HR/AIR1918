@@ -14,8 +14,13 @@
         <activity android:name=".weight.WeightActivity"></activity>
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".MeasurementsInputActivity"/>
-        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.LoginActivity">
+
+        </activity>
         <activity android:name=".weight.WeightInput">
+
+        </activity>
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
