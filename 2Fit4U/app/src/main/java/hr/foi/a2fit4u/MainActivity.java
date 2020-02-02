@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.core.CurrentActivity;
 import com.example.core.util.Util;
 import com.google.android.material.navigation.NavigationView;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CurrentActivity.setActivity(this);
         setContentView(R.layout.activity_main);
 
         fragmentManager = this.getSupportFragmentManager();

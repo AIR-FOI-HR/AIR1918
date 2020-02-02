@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/acc"
         android:layout_below="@+id/image"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="288dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -54,15 +54,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/register_field_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
             android:background="#0000"
             android:gravity="left"
-
-            android:hint="Username"
-            android:maxLength="12"
+            android:hint="@string/register_hint_username"
+            android:imeOptions="actionNext"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:inputType="text"
+            android:nextFocusDown="@id/register_field_email"
             android:padding="16dp"
             android:textColor="@color/colortext"
             android:textColorHint="@color/colorhint"
@@ -77,14 +80,17 @@
             android:background="#dad8d8" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/register_field_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
             android:background="#0000"
             android:gravity="left"
-            android:hint="Email"
-            android:maxLength="12"
+            android:hint="@string/register_hint_email"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:inputType="text"
+            android:nextFocusDown="@id/register_field_password"
             android:padding="16dp"
             android:textColor="@color/colortext"
             android:textColorHint="@color/colorhint"
@@ -99,7 +105,7 @@
             android:background="#dad8d8" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/register_field_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
@@ -107,8 +113,10 @@
             android:background="#0000"
             android:drawableRight="@drawable/eye"
             android:gravity="left"
-            android:hint="Password"
+            android:hint="@string/register_hint_password"
+            android:imeOptions="actionDone"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:padding="16dp"
             android:textColor="@color/colortext"
             android:textColorHint="@color/colorhint"
@@ -123,7 +131,7 @@
             android:background="#dad8d8" />
 
         <TextView
-            android:id="@+id/signup1"
+            android:id="@+id/register_button_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
@@ -132,7 +140,7 @@
             android:background="#2b73e1"
             android:gravity="center"
             android:padding="9dp"
-            android:text="Sign up"
+            android:text="@string/register_signup"
             android:textColor="#fff"
             android:textSize="16dp" />
 
@@ -142,8 +150,8 @@
         android:id="@+id/acc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/signinhere"
-        android:layout_marginTop="660dp"
+        android:layout_above="@+id/register_button_signin"
+        android:layout_marginTop="612dp"
         android:gravity="center"
         android:lines="1"
         android:text="Already have account?"
@@ -153,17 +161,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/signinhere"
+        android:id="@+id/register_button_signin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="640dp"
         android:gravity="center"
         android:lines="1"
-        android:text="Signin here"
+        android:text="@string/register_button_signin_here"
         android:textColor="#2b73e1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
