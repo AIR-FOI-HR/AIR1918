@@ -23,6 +23,7 @@ import hr.foi.a2fit4u.managers.DataPresenterManager;
 import hr.foi.a2fit4u.measurements.MeasurementsFragment;
 import hr.foi.a2fit4u.nfc.NFCFragment;
 import hr.foi.a2fit4u.profile.ProfileFragment;
+import hr.foi.a2fit4u.settings.SettingsActivity;
 import hr.foi.a2fit4u.weight.WeightFragment;
 
 import com.example.core.util.Constants;
@@ -204,9 +205,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .commit();
                 break;
             case Constants.NAVIGATION_SETTINGS:
-                //Intent intent2 = new Intent(this,GraphActivity.class);
-                //startActivity(intent2);
-                //handle dynamic cases
+                Intent settingsIntent = new Intent(
+                        this,
+                        SettingsActivity.class);
+                this.startActivity(settingsIntent);
                 break;
             case Constants.NAVIGATION_LOGOUT:
                 AccountManager.getInstance().logOut();
