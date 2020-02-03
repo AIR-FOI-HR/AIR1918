@@ -22,6 +22,7 @@ import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
 import hr.foi.a2fit4u.measurements.MeasurementsFragment;
 import hr.foi.a2fit4u.nfc.NFCFragment;
+import hr.foi.a2fit4u.profile.ProfileFragment;
 import hr.foi.a2fit4u.weight.WeightFragment;
 
 import com.example.core.util.Constants;
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void startMainFragment() {
+        fragmentManager.beginTransaction()
+                .replace(R.id.container_fragment, new ProfileFragment())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("")
+                .commit();
     }
 
     private boolean checkNFCScan() {
@@ -170,9 +176,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             //handle static cases
             case R.id.menu_profile:
-                //do something
-                //Intent intent = new Intent(this,TableActivity.class);
-                //startActivity(intent);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new ProfileFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
                 break;
             case R.id.menu_weight:
                 fragmentManager.beginTransaction()
