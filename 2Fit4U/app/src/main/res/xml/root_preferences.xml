@@ -28,8 +28,18 @@
             app:title="Calories"
             app:useSimpleSummaryProvider="true" />
 
+        <EditTextPreference
+            app:key="settingsAge"
+            app:title="Age"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="settingsHeight"
+            app:title="Height"
+            app:useSimpleSummaryProvider="true" />
+
         <ListPreference
-            app:defaultValue="reply"
+            app:defaultValue="BMR"
             app:entries="@array/settings_activity_entries"
             app:entryValues="@array/settings_activity_values"
             app:key="settingsActivityLevel"
