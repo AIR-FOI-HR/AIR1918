@@ -39,12 +39,6 @@ public class AccountManager {
         }
     }
 
-    //TODO
-    // sendPassword
-    public void sendPassword()
-    {
-
-    }
 
     public boolean checkFirstTimeUser()
     {

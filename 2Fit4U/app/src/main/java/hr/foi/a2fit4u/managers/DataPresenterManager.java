@@ -69,13 +69,6 @@ public class DataPresenterManager {
                 .setCheckable(true);
     }
 
-    public void startMainModule()
-    {
-        //DataPresenter mainModule = modules != null ? modules.get(0) : null;
-        //if (mainModule != null)
-        //   startModule(mainModule);
-    }
-
     private void startModule(DataPresenter module)
     {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();

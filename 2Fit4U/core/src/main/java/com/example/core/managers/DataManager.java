@@ -32,24 +32,5 @@ public class DataManager {
         module.setNeckData(DBManager.getInstance().getNeckData());
     }
 
-    public void syncData()
-    {
-        //TODO
-        // s accoumtManager azuriraj spremljene podatke iz DBManager
-        /*DataLoader dataLoader = DataLoaderFactory.getDataLoader();
-        dataLoader.loadData(new DataLoadedListener() {
-            @Override
-            public void onDataLoaded(List<Store> stores, List<Discount> discounts) {
-                //sync local database data
-                DAO dao = database.getDAO();
-                dao.deleteStores();
-                dao.deleteDiscounts();
 
-                for(Store s: stores)
-                    dao.insertStores(s);
-                for(Discount d: discounts)
-                    dao.insertDiscounts(d);
-            }
-        });*/
-    }
 }

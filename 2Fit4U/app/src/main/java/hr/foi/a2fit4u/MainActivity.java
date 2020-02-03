@@ -106,70 +106,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         DataPresenterManager dataPresenterManager = DataPresenterManager.getInstance();
         dataPresenterManager.setDrawerDependencies(this, navigationView, drawerLayout, R.id.dynamic_group);
-        dataPresenterManager.startMainModule();
+
     }
 
-    // mozda nepotrebno, za settingse
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.preferences:
-                Intent intent = new Intent(
-                                this,
-                                SettingsActivity.class);
-                this.startActivity(intent);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        switch (key) {
-            case "language":
-                util.setLanguage(this);
-                this.recreate();
-                break;
-        }
-    }
-
-    */
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-        //staro
-        /*
-        drawerLayout.closeDrawer(GravityCompat.START);
-        if(menuItem.getItemId() == R.id.home)
-        {
-            /*fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
 
-            fragmentTransaction.commit(); /
-
-            Intent intent = new Intent(this,TableActivity.class);
-            startActivity(intent);
-        }
-        if(menuItem.getItemId() == R.id.settings)
-        {
-            /*fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
-
-            fragmentTransaction.commit(); /
-            Intent intent = new Intent(this,GraphActivity.class);
-            startActivity(intent);
-        }*/
 
 
         //novo
@@ -223,17 +168,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    /*@Override
-    public void onButtonSelected() {
-        /*fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
-
-        fragmentTransaction.commit(); /
-
-        Intent intent = new Intent(this,NFCActivity.class);
-        startActivity(intent);
-    }*/
 
     @Override
     public void onBackPressed() {

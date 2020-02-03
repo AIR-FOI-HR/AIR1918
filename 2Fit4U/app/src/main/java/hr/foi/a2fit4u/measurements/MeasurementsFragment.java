@@ -36,6 +36,7 @@ public class MeasurementsFragment extends Fragment {
     private EditText inputHip;
     private EditText inputNeck;
     private EditText inputWaist;
+    private EditText inputHeight;
 
     private TextView textViewStartingNeck;
     private TextView textViewStartingWaist;
@@ -51,6 +52,7 @@ public class MeasurementsFragment extends Fragment {
         inputNeck = view.findViewById(R.id.measurements_current_neck);
         inputHip = view.findViewById(R.id.measurements_current_hip);
         inputWaist = view.findViewById(R.id.measurements_current_waist);
+        inputHeight = view.findViewById(R.id.measurements_current_height);
 
         textViewStartingHip = view.findViewById(R.id.measurements_starting_hip);
         textViewStartingNeck = view.findViewById(R.id.measurements_starting_neck);
@@ -115,9 +117,16 @@ public class MeasurementsFragment extends Fragment {
             addNewEntry(waistEntryValue, Constants.DATA_TYPE_WAIST);
         }
 
+        if(!inputHeight.getText().toString().isEmpty())
+        {
+            float heightEntryValue = Float.parseFloat(inputHeight.getText().toString());
+            addNewEntry(heightEntryValue, Constants.DATA_TYPE_HEIGHT);
+        }
+
         inputHip.getText().clear();
         inputWaist.getText().clear();
         inputNeck.getText().clear();
+        inputHeight.getText().clear();
 
         Toast.makeText(v.getContext(),R.string.measurements_toast_entry,Toast.LENGTH_SHORT);
     }
