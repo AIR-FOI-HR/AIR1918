@@ -1,7 +1,9 @@
 package hr.foi.a2fit4u.weight;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,7 @@ public class WeightFragment extends Fragment {
 
         DisplayCurrentWeight();
         DisplayStartingWeight();
+        DisplayGoalWeight();
 
         return view;
 
@@ -110,13 +113,9 @@ public class WeightFragment extends Fragment {
     {
         textViewStartingWeight.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_STARTING_WEIGHT) + " KG");
     }
-
-    //TODO
-    // Display goal weight
-    // Progress bar
     private void DisplayGoalWeight()
     {
-
+        textViewGoalWeight.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_GOAL_WEIGHT) + " KG");
     }
 
     private void DisplayPreviousEntries(View view)

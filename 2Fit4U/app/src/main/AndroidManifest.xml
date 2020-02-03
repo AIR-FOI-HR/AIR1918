@@ -3,9 +3,7 @@
     package="hr.foi.a2fit4u">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.NFC" />
-
     <uses-permission android:name="android.permission.NFC" />
 
     <application
@@ -15,8 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
         <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".MeasurementsInputActivity"/>
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" >
-
-        </activity>
-        <activity android:name=".nfc.NFCScanActivity" >
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".nfc.NFCScanActivity">
             <intent-filter>
-                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

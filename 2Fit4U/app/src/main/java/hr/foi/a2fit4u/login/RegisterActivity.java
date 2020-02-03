@@ -12,7 +12,6 @@ import com.example.core.managers.AccountManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hr.foi.a2fit4u.GetData;
 import hr.foi.a2fit4u.R;
 
 public class RegisterActivity extends AppCompatActivity {

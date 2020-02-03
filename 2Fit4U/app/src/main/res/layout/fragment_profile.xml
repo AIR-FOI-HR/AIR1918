@@ -57,7 +57,7 @@
         android:id="@+id/profile_new_measurements"
         android:layout_width="242dp"
         android:layout_height="43dp"
-        android:layout_marginTop="472dp"
+        android:layout_marginTop="488dp"
         android:background="#2b73e1"
         android:gravity="center"
         android:padding="9dp"
@@ -70,10 +70,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/profile_weighin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="544dp"
+        android:background="#2b73e1"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="WEIGHT IN"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/GoalWeight"
         android:layout_width="126dp"
         android:layout_height="38dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="420dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -81,7 +97,7 @@
         android:textColor="#222"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,7 +105,7 @@
         android:id="@+id/profile_current_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="380dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -97,7 +113,7 @@
         android:textColor="#222"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,7 +121,7 @@
         android:id="@+id/profile_goal_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="420dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -113,7 +129,7 @@
         android:textColor="#222"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -121,7 +137,7 @@
         android:id="@+id/CurrentWeight"
         android:layout_width="156dp"
         android:layout_height="40dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="380dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -133,27 +149,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/profile_weighin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="532dp"
-        android:background="#2b73e1"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="WEIGHT IN"
-        android:textColor="#fff"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--CURRENT I GOAL-->
 
     <TextView
         android:id="@+id/neck"
         android:layout_width="73dp"
         android:layout_height="42dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="280dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -161,15 +163,15 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/profile_neck"
-        android:layout_width="64dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="248dp"
+        android:layout_width="63dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="280dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -177,15 +179,15 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/waist"
-        android:layout_width="81dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="248dp"
+        android:layout_width="70dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="284dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -193,7 +195,7 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -201,7 +203,7 @@
         android:id="@+id/profile_waist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="284dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -209,15 +211,15 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/hips"
-        android:layout_width="75dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="248dp"
+        android:layout_width="58dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="284dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -225,7 +227,7 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.813"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -233,7 +235,7 @@
         android:id="@+id/profile_hips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="284dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
@@ -241,33 +243,31 @@
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bodyFat"
+        android:id="@+id/BMI"
         android:layout_width="101dp"
         android:layout_height="39dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="328dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
-        android:text="Body fat:"
+        android:text="BMI:"
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintHorizontal_bias="0.364"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--CURRENT I GOAL-->
 
     <TextView
         android:id="@+id/profile_bodyfat"
         android:layout_width="69dp"
         android:layout_height="40dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="328dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
