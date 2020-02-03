@@ -9,299 +9,274 @@
     android:orientation="vertical"
     tools:context=".login.LoginActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:background="@drawable/signinbg"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="New measurements"
-            android:textColor="#fff"
-            android:textSize="34dp" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/acc"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
     <!--gumbich-->
+    <!--Izmjerene mjere-->
+
     <TextView
-        android:id="@+id/btnSpremiMjere"
-        android:layout_width="130dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="300dp"
+        android:id="@+id/measurements_button_new_entry"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="200dp"
         android:background="#2b73e1"
         android:gravity="center"
         android:padding="9dp"
-        android:text="WEIGH IN"
+        android:text="Measure!"
         android:textColor="#fff"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!--iznad gumba-->
-
-    <!--ispod gumba-->
-
-    <TextView
-        android:id="@+id/trenutnaTezina"
-        android:layout_width="191dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="240dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="CURRENT WEIGHT:"
-        android:textColor="#222"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/trenutnaTezinaIzracunata"
-        android:layout_width="115dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="240dp"
+        android:id="@+id/neck"
+        android:layout_width="153dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="392dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
-        android:text="____ KG"
-        android:textColor="#222"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/startWeight"
-        android:layout_width="176dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="416dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="STARTING WEIGHT:"
+        android:text="Neck:"
         android:textColor="#aaa"
         android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!--GRAF-->
-
-    <!--ispod GRAFA-->
-
-    <TextView
-        android:id="@+id/startWeightUnos"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="416dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="____ KG"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/goalWeight"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="456dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="GOAL WEIGHT:"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/goalWeightIzracun"
-        android:layout_width="96dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="456dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="____ KG"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/previousWeightIns"
-        android:layout_width="match_parent"
+        android:id="@+id/measurements_starting_neck"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="396dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
-        android:text="Previous weight ins:"
+        android:text="______"
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="590dp"
-        android:background="#dad8d8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <!--DATUMI VAGANJA-->
 
     <TextView
-        android:id="@+id/datum1"
-        android:layout_width="114dp"
+        android:id="@+id/waist"
+        android:layout_width="133dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="156dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Waist:"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/measurements_starting_waist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="348dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="______"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.924"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--START mjere-->
+
+    <TextView
+        android:id="@+id/bodyFat"
+        android:layout_width="153dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="436dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Hip:"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/measurements_starting_hip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="______"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.924"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pocetneMjere"
+        android:layout_width="195dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="308dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Starting measures:"
+        android:textColor="#222"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--CRTICE-->
+
+    <TextView
+        android:id="@+id/STARTneck"
+        android:layout_width="134dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="208dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Neck:"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/measurements_current_neck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:hint="______"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@id/measurements_current_hip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/STARTwaist"
+        android:layout_width="153dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="352dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Waist:"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/measurements_current_waist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="156dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:hint="______"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        android:imeOptions="actionNext"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@id/measurements_current_neck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/STARTbodyFat"
+        android:layout_width="134dp"
         android:layout_height="38dp"
-        android:layout_marginTop="604dp"
+        android:layout_marginTop="260dp"
         android:background="#fff"
         android:gravity="center"
         android:padding="9dp"
-        android:text="10/10/2019"
+        android:text="Hips:"
         android:textColor="#aaa"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--ZADNJE ZAPAMCENO MJERENJE TREBA BITI RECYCLE VIEW-->
+
+    <EditText
+        android:id="@+id/measurements_current_hip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="256dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:hint="______"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionDone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/measurements_recyclerview"
+        android:layout_width="409dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="528dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linear" />
 
     <TextView
-        android:id="@+id/kile1"
-        android:layout_width="99dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="604dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="90 KG"
-        android:textColor="#aaa"
-        android:textSize="16dp"
+        android:id="@+id/previousMeasurements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="492dp"
+        android:text="Previous measurements"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/datum2"
-        android:layout_width="112dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="640dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="10/10/2019"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/kile2"
-        android:layout_width="102dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="640dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="80 KG"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/datum3"
-        android:layout_width="110dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="676dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="10/10/2019"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/kile3"
-        android:layout_width="99dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="676dp"
-        android:background="#fff"
-        android:gravity="center"
-        android:padding="9dp"
-        android:text="90 KG"
-        android:textColor="#aaa"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="116dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

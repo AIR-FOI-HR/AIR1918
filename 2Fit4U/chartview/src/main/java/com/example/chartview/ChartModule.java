@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.core.interfaces.DataPresenter;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -55,7 +56,7 @@ public class ChartModule extends Fragment implements DataPresenter {
 
     @Override
     public Drawable getIcon(Context context) {
-        return context.getDrawable(android.R.drawable.ic_menu_help);
+        return context.getDrawable(R.drawable.icon_charts);
     }
 
     @Override
@@ -100,7 +101,37 @@ public class ChartModule extends Fragment implements DataPresenter {
 
         LineData data = new LineData(dataSets);
 
-        mChart.setData(data);
+        mChart.setData(generateLineData());
+    }
+
+    float getRandom(float range, float start) {
+        return (float) (Math.random() * range) + start;
+    }
+
+    private LineData generateLineData() {
+
+        LineData d = new LineData();
+
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        for (int index = 0; index < 10; index++)
+            entries.add(new Entry(index + 0.5f, getRandom(15, 5)));
+
+        LineDataSet set = new LineDataSet(entries, "Line DataSet");
+        set.setColor(Color.rgb(240, 238, 70));
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.rgb(240, 238, 70));
+        set.setCircleRadius(5f);
+        set.setFillColor(Color.rgb(240, 238, 70));
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setDrawValues(true);
+        set.setValueTextSize(10f);
+        set.setValueTextColor(Color.rgb(240, 238, 70));
+
+        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+        d.addDataSet(set);
+
+        return d;
     }
 
 

@@ -11,12 +11,19 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.core.CurrentActivity;
+import com.example.core.managers.AccountManager;
 import com.example.core.util.Util;
 import com.google.android.material.navigation.NavigationView;
 
+import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
+import hr.foi.a2fit4u.measurements.MeasurementsFragment;
+import hr.foi.a2fit4u.weight.WeightFragment;
+
+import com.example.core.util.Constants;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -131,15 +138,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(menuItem.getItemId())
         {
             //handle static cases
-            case R.id.home:
+            case R.id.menu_profile:
                 //do something
                 //Intent intent = new Intent(this,TableActivity.class);
                 //startActivity(intent);
                 break;
-            case R.id.settings:
+            case R.id.menu_weight:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new WeightFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
+                break;
+            case R.id.menu_measurements:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new MeasurementsFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
+                break;
+            case R.id.menu_nfc:
+                break;
+            case Constants.NAVIGATION_SETTINGS:
                 //Intent intent2 = new Intent(this,GraphActivity.class);
                 //startActivity(intent2);
                 //handle dynamic cases
+                break;
+            case Constants.NAVIGATION_LOGOUT:
+                AccountManager.getInstance().logOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
             default:
                 DataPresenterManager.getInstance().selectNavigationItem(menuItem);
         }

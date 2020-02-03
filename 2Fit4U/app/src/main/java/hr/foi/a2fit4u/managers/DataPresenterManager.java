@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.chartview.ChartModule;
 import com.example.core.interfaces.DataPresenter;
 import com.example.core.managers.DataManager;
+import com.example.core.util.Constants;
 import com.example.tableview.TableModule;
 import com.google.android.material.navigation.NavigationView;
 
@@ -57,6 +58,15 @@ public class DataPresenterManager {
                     .setIcon(module.getIcon(activity))
                     .setCheckable(true);
         }
+
+        navigationView.getMenu()
+                .add(Constants.NAVIGATION_SETTINGS, Constants.NAVIGATION_SETTINGS, Constants.NAVIGATION_SETTINGS+1, R.string.menu_title_settings)
+                .setIcon(R.drawable.icon_settings)
+                .setCheckable(true);
+        navigationView.getMenu()
+                .add(Constants.NAVIGATION_LOGOUT, Constants.NAVIGATION_LOGOUT, Constants.NAVIGATION_LOGOUT+1, R.string.menu_title_logout)
+                .setIcon(R.drawable.icon_logout)
+                .setCheckable(true);
     }
 
     public void startMainModule()
@@ -72,6 +82,7 @@ public class DataPresenterManager {
         fragmentManager.beginTransaction()
                 .replace(R.id.container_fragment, module.getFragment())
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("")
                 .commit();
 
         DataManager.getInstance().sendData(module);

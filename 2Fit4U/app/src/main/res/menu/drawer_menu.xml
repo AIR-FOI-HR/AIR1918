@@ -10,27 +10,29 @@
         <item android:title="General">
             <menu>
                 <item
-                    android:id="@+id/home"
-                    android:icon="@drawable/ic_home"
-                    android:title="Home" />
+                    android:id="@+id/menu_profile"
+                    android:icon="@drawable/icon_profile"
+                    android:title="@string/menu_title_profile" />
                 <item
-                    android:id="@+id/settings"
-                    android:icon="@drawable/ic_settings"
-                    android:title="Settings" />
+                    android:id="@+id/menu_weight"
+                    android:icon="@drawable/icon_weight"
+                    android:title="@string/menu_title_weight" />
+                <item
+                    android:id="@+id/menu_measurements"
+                    android:icon="@drawable/icon_measurements"
+                    android:title="@string/menu_title_measurements" />
+                <item
+                    android:id="@+id/menu_nfc"
+                    android:icon="@drawable/icon_nfc"
+                    android:title="@string/menu_title_nfc" />
+
+
+
+
             </menu>
         </item>
-        <item android:title="Dodatno">
-            <menu>
-                <item
-                    android:id="@+id/home1"
-                    android:icon="@drawable/ic_home"
-                    android:title="Home" />
-                <item
-                    android:id="@+id/settings1"
-                    android:icon="@drawable/ic_settings"
-                    android:title="Settings" />
-            </menu>
-        </item>
+
+
 
     </group>
 </menu>

@@ -4,6 +4,9 @@ import android.os.StrictMode;
 import android.util.Log;
 
 import com.example.core.db.User;
+import com.example.core.items.MeasurementItem;
+import com.example.core.items.WeightItem;
+import com.example.core.util.Constants;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,8 +14,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import com.example.core.util.*;
 
 public class DBManager {
     private static final DBManager dbInstance = new DBManager();
@@ -50,17 +57,31 @@ public class DBManager {
         catch (Exception ex){Log.e("Exception error", ex.getMessage());}
     }
 
+    private void CheckConnection()
+    {
+        try {
+            if(connection.isClosed()){
+                Connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void InsertData(int dataType, float value )
     {
         int userID = AccountManager.getInstance().getUser().getId();
-        String currentDate = new SimpleDateFormat("yyyy-mm-dd", Locale.getDefault()).format(new Date());
+
+        CheckConnection();
 
         try{
             if(connection == null){
                 Log.d("Send data", "Greška prilikom unosa novih mjera");
             }
             else{
-                String query = "INSERT INTO [UserMeasure] (ID_User, ID_Measures, Date, Value) VALUES ('"+userID+"','"+dataType+"','"+currentDate+"','"+value+"')";
+                Log.d("DBManager", "Izvrsavam unos...");
+                String query = "INSERT INTO UserMeasure (ID_User, ID_Measures, Value) VALUES ('"+userID+"','"+dataType+"','"+value+"')";
+                Log.d("DBManager", "Query: " + query);
                 Statement stat = connection.createStatement();
                 ResultSet rs = stat.executeQuery(query);
 
@@ -70,19 +91,21 @@ public class DBManager {
 
             }
         }catch (Exception ex){
-            Log.d("DBManager", ex.getMessage());
+            Log.d("DBManager", "Unos: " + ex.getMessage());
         }
     }
 
     //NFC insert
     public void InsertData(int dataType, String value)
     {
-
+        CheckConnection();
     }
 
     //Register user
     public void InsertData(String username, String email, String password)
     {
+        CheckConnection();
+
         try {
             if(connection == null){
                 Log.d("DBManager", "Greška sa spajanjem na bazu");
@@ -108,19 +131,189 @@ public class DBManager {
 
     }
 
-    public String getData(int dataType)
-    {
+    public String getData(int dataType) {
+        CheckConnection();
         //TODO
         // switch ovdje
         // 1 - invalid username
         // 2 - invalid password
-        return "";
+        try {
+            if (connection == null) {
+                Log.d("DBManager", "Greška sa spajanjem na bazu");
+
+            } else {
+                Log.d("DBManager", "Izvršavam upit");
+                String query = "";
+                switch (dataType)
+                {
+                    case Constants.DATA_TYPE_STARTING_WEIGHT:
+                        query = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                                "AND ID_Measures = '" + Constants.DATA_TYPE_WEIGHT + "'";
+                        break;
+                    case Constants.DATA_TYPE_STARTING_NECK:
+                        query = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                                "AND ID_Measures = '" + Constants.DATA_TYPE_NECK + "'";
+                        break;
+                    case Constants.DATA_TYPE_STARTING_HIPS:
+                        query = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                                "AND ID_Measures = '" + Constants.DATA_TYPE_HIPS + "'";
+                        break;
+                    case Constants.DATA_TYPE_STARTING_WAIST:
+                        query = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                                "AND ID_Measures = '" + Constants.DATA_TYPE_WAIST + "'";
+                        break;
+                    default:
+                        query = "SELECT TOP 1 * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                                "AND ID_Measures = '" + dataType + "' ORDER BY UserMeasure_ID DESC";
+
+                }
+                Statement stat = connection.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                Log.d("DBManager", "Upit izvršen");
+                if (rs.next()) {
+
+                    Log.d("DBManager", "Pronađen korisnik!");
+
+                    return rs.getString("Value");
+                }
+                //connection.close();
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "No entry";
     }
 
-    //Get user
+    public List<WeightItem> getData()
+    {
+        List<WeightItem> weightItemList = new ArrayList<>();
+
+        try {
+
+            if(connection == null)
+            {
+                Log.d("DBManager","Greška prilikom spajanja na bazu");
+            }
+            else{
+                String query = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                        "AND ID_Measures = '" + Constants.DATA_TYPE_WEIGHT + "'";
+
+                Statement stat = connection.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                Log.d("DBManager", "Upit izvršen");
+                while (rs.next()) {
+
+                    Log.d("DBManager", "Pronađen korisnik!");
+
+                    String weight = rs.getString("Value");
+                    String date = rs.getString("Date");
+
+                    Log.d("DBManager", "Date: " + date + " Value: " + weight);
+
+                    WeightItem newWeightItem = new WeightItem(weight,date);
+
+                    weightItemList.add(newWeightItem);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return weightItemList;
+    }
+
+    public List<MeasurementItem> getMeasurementData(){
+        List<MeasurementItem> measurementItemList = new ArrayList<>();
+
+
+        try {
+
+            if(connection == null)
+            {
+                Log.d("DBManager","Greška prilikom spajanja na bazu");
+            }
+            else{
+                String queryWaist = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                        "AND ID_Measures = '" + Constants.DATA_TYPE_WAIST + "'";
+                String queryHip = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                        "AND ID_Measures = '" + Constants.DATA_TYPE_HIPS + "'";
+                String queryNeck = "SELECT * FROM UserMeasure WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' " +
+                        "AND ID_Measures = '" + Constants.DATA_TYPE_NECK + "'";
+
+                Statement statWaist = connection.createStatement();
+                ResultSet rsWaist = statWaist.executeQuery(queryWaist);
+
+
+                Log.d("DBManager", "Upit izvršen");
+                while (rsWaist.next()) {
+
+                    Log.d("DBManager", "Pronađen korisnik!");
+
+                    String waistValue = rsWaist.getString("Value");
+                    String date = rsWaist.getString("Date");
+
+                    Log.d("DBManager", "Date: " + date + " Value: " + waistValue);
+
+                    MeasurementItem measurementItem = new MeasurementItem("Waist",waistValue,date);
+
+                    measurementItemList.add(measurementItem);
+                }
+
+                Statement statHips = connection.createStatement();
+                ResultSet rsHip = statHips.executeQuery(queryHip);
+
+
+                while (rsHip.next()) {
+
+                    Log.d("DBManager", "Pronađen korisnik!");
+
+                    String hipValue = rsHip.getString("Value");
+                    String date = rsHip.getString("Date");
+
+                    Log.d("DBManager", "Date: " + date + " Value: " + hipValue);
+
+                    MeasurementItem measurementItem = new MeasurementItem("Hips",hipValue,date);
+
+                    measurementItemList.add(measurementItem);
+                }
+
+                Statement statNeck = connection.createStatement();
+                ResultSet rsNeck = statNeck.executeQuery(queryNeck);
+
+                while (rsNeck.next()) {
+
+                    Log.d("DBManager", "Pronađen korisnik!");
+
+                    String neckValue = rsNeck.getString("Value");
+                    String date = rsNeck.getString("Date");
+
+                    Log.d("DBManager", "Date: " + date + " Value: " + neckValue);
+
+                    MeasurementItem measurementItem = new MeasurementItem("Neck",neckValue,date);
+
+                    measurementItemList.add(measurementItem);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return measurementItemList;
+
+    }
+
+        //Get user
     public User getData(String username, String password)
     {
         User user = null;
+        CheckConnection();
         try {
 
             if(connection == null){
