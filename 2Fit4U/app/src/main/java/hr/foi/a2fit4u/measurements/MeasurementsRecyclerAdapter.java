@@ -39,33 +39,7 @@ public class MeasurementsRecyclerAdapter extends RecyclerView.Adapter<Measuremen
 
         MeasurementItem measurementItem = measurementItemList.get(position);
 
-        if(measurementItem.getHipValue() == null || measurementItem.getHipValue().isEmpty())
-        {
-            holder.measurementHipValue.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            holder.measurementHipValue.setText(measurementItem.getHipValue() + " cm");
-        }
-
-        if(measurementItem.getNeckValue() == null || measurementItem.getNeckValue().isEmpty())
-        {
-            holder.measurementNeckValue.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            holder.measurementNeckValue.setText(measurementItem.getNeckValue() + " cm");
-        }
-
-        if(measurementItem.getWaistValue() == null || measurementItem.getWaistValue().isEmpty())
-        {
-            holder.measurementWaistValue.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            holder.measurementWaistValue.setText(measurementItem.getWaistValue() + " cm");
-        }
-
+        holder.measurementValue.setText(measurementItem.getType() + ": " + measurementItem.getValue() + " cm");
         holder.measurementDateValue.setText(measurementItem.getDateValue());
 
     }
@@ -77,16 +51,14 @@ public class MeasurementsRecyclerAdapter extends RecyclerView.Adapter<Measuremen
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView measurementHipValue, measurementWaistValue, measurementNeckValue, measurementDateValue;
+        public TextView measurementDateValue, measurementValue;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             measurementDateValue = itemView.findViewById(R.id.measurements_item_date);
-            measurementHipValue = itemView.findViewById(R.id.measurements_item_hip);
-            measurementNeckValue = itemView.findViewById(R.id.measurements_item_neck);
-            measurementWaistValue = itemView.findViewById(R.id.measurements_item_waist);
+            measurementValue = itemView.findViewById(R.id.measurements_item);
         }
     }
 }

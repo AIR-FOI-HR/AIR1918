@@ -22,19 +22,7 @@
                 android:textAlignment="center"/>
 
             <TextView
-                android:id="@+id/measurements_item_neck"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:id="@+id/measurements_item_hip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:id="@+id/measurements_item_waist"
+                android:id="@+id/measurements_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"/>

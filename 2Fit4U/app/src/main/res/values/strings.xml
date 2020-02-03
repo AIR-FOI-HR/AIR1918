@@ -40,4 +40,6 @@
     <string name="dialog_confirm">Confirm</string>
     <string name="dialog_new_weight_entry">Add new weight entry</string>
     <string name="dialog_reject">Cancel</string>
+    <string name="measurements_dialog_title">Add new measurements</string>
+    <string name="measurements_toast_entry">Added new entries!</string>
 </resources>

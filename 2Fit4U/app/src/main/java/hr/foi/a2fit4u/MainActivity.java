@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
+import hr.foi.a2fit4u.measurements.MeasurementsFragment;
 import hr.foi.a2fit4u.weight.WeightFragment;
 
 import com.example.core.util.Constants;
@@ -150,6 +151,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .commit();
                 break;
             case R.id.menu_measurements:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new MeasurementsFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
                 break;
             case R.id.menu_nfc:
                 break;

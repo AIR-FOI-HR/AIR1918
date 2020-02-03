@@ -2,40 +2,30 @@ package com.example.core.items;
 
 public class MeasurementItem {
 
-    private String neckValue;
-    private String hipValue;
-    private String waistValue;
+    private String type;
+    private String value;
     private String dateValue;
 
-    public MeasurementItem(String neckValue, String hipValue, String waistValue, String dateValue) {
-        this.neckValue = neckValue;
-        this.hipValue = hipValue;
-        this.waistValue = waistValue;
+    public MeasurementItem(String type, String value, String dateValue) {
+        this.type = type;
+        this.value = value;
         this.dateValue = dateValue;
     }
 
-    public String getNeckValue() {
-        return neckValue;
+    public String getType() {
+        return type;
     }
 
-    public void setNeckValue(String neckValue) {
-        this.neckValue = neckValue;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getHipValue() {
-        return hipValue;
+    public String getValue() {
+        return value;
     }
 
-    public void setHipValue(String hipValue) {
-        this.hipValue = hipValue;
-    }
-
-    public String getWaistValue() {
-        return waistValue;
-    }
-
-    public void setWaistValue(String waistValue) {
-        this.waistValue = waistValue;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public String getDateValue() {

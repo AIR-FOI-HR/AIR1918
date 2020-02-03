@@ -103,7 +103,7 @@ public class WeightFragment extends Fragment {
 
     private void DisplayCurrentWeight()
     {
-        textViewCurrentWeight.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_WEIGHT));
+        textViewCurrentWeight.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_WEIGHT) + " KG");
     }
 
     private void DisplayStartingWeight()
@@ -113,6 +113,7 @@ public class WeightFragment extends Fragment {
 
     //TODO
     // Display goal weight
+    // Progress bar
     private void DisplayGoalWeight()
     {
 
