@@ -96,7 +96,7 @@ public class DBManager {
     }
 
     //NFC insert
-    public void InsertData(int dataType, String value)
+    public void InsertData(int dataType, String value, String name)
     {
         CheckConnection();
     }
@@ -363,6 +363,45 @@ public class DBManager {
             Log.d("DBManager","Greška! "+ ex.getMessage());
         }
         return null;
+    }
+
+    public boolean checkEntity(int entityType, String value)
+    {
+        CheckConnection();
+
+        try
+        {
+            if(connection==null)
+            {
+                Log.d("DBManager","Greška prilikom spajanja na bazu");
+            }
+            else
+            {
+                String query = "";
+                switch (entityType)
+                {
+                    case Constants.DATA_TYPE_NFC:
+                        query = "SELECT * FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' AND " +
+                                "NfcTag = '" + value + "'";
+                        break;
+                }
+
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+
+                if(resultSet.next())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public void closeDB()
