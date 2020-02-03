@@ -56,6 +56,8 @@ public class WeightRecyclerAdapter extends RecyclerView.Adapter<WeightRecyclerAd
 
             weightValue = itemView.findViewById(R.id.weight_item_weight);
             weightDate = itemView.findViewById(R.id.weight_item_date);
+
+
         }
     }
 

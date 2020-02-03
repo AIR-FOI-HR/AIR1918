@@ -23,7 +23,7 @@ public class NFCScanActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_nfc);
 
         ButterKnife.bind(this);
     }
@@ -72,7 +72,7 @@ public class NFCScanActivity extends Activity {
             if(!DBManager.getInstance().checkEntity(Constants.DATA_TYPE_NFC, String.valueOf(sb)))
             {
                 Intent activityIntent = new Intent(NFCScanActivity.this, MainActivity.class);
-                activityIntent.putExtra("NFC Tag",String.valueOf(sb));
+                activityIntent.putExtra(getString(R.string.bundle_nfc_tag),String.valueOf(sb));
                 startActivity(activityIntent);
             }
 

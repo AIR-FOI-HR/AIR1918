@@ -21,6 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import hr.foi.a2fit4u.login.LoginActivity;
 import hr.foi.a2fit4u.managers.DataPresenterManager;
 import hr.foi.a2fit4u.measurements.MeasurementsFragment;
+import hr.foi.a2fit4u.nfc.NFCFragment;
 import hr.foi.a2fit4u.weight.WeightFragment;
 
 import com.example.core.util.Constants;
@@ -44,9 +45,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentManager = this.getSupportFragmentManager();
 
 
+        if(!checkNFCScan())
+        {
+            startMainFragment();
+        }
         initializeLayout();
         initializeDataPresenterManager();
 
+    }
+
+    private void startMainFragment() {
+    }
+
+    private boolean checkNFCScan() {
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!=null)
+        {
+            String NFCTag = (String) bundle.get(getString(R.string.bundle_nfc_tag));
+            if(!NFCTag.isEmpty())
+            {
+
+                NFCFragment newFragment = new NFCFragment();
+                newFragment.setArguments(bundle);
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, newFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
+
+                return true;
+            }
+        }
+        return false;
     }
 
     private void initializeLayout()
@@ -158,6 +189,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .commit();
                 break;
             case R.id.menu_nfc:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_fragment, new NFCFragment())
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack("")
+                        .commit();
                 break;
             case Constants.NAVIGATION_SETTINGS:
                 //Intent intent2 = new Intent(this,GraphActivity.class);

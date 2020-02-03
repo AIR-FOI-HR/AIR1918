@@ -42,4 +42,7 @@
     <string name="dialog_reject">Cancel</string>
     <string name="measurements_dialog_title">Add new measurements</string>
     <string name="measurements_toast_entry">Added new entries!</string>
+    <string name="bundle_nfc_tag">NFC Tag</string>
+    <string name="add_nfc_device">Add NFC device</string>
+    <string name="nfc_dialog_new_entry">Add new NFC device</string>
 </resources>

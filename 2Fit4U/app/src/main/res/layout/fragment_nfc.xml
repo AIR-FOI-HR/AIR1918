@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".login.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/acc"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--gumbich-->
+    <!--iznad gumba-->
+
+    <!--ispod gumba-->
+
+
+    <!--GRAF-->
+
+    <!--ispod GRAFA-->
+
+    <TextView
+        android:id="@+id/nfc_button_scan"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="116dp"
+        android:background="#2b73e1"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="@string/add_nfc_device"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/layout_NFCDevices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="216dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="NFC Devices:"
+        android:textColor="#aaa"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/nfc_recyclerview"
+        android:layout_width="409dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--DATUMI VAGANJA-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
