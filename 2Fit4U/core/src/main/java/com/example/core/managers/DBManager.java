@@ -1,6 +1,7 @@
 package com.example.core.managers;
 
 import android.os.StrictMode;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.core.db.User;
@@ -163,6 +164,9 @@ public class DBManager {
     {
         CheckConnection();
 
+        String[] cleanTag = tag.split(" ");
+
+
         try
         {
             if(connection==null)
@@ -171,16 +175,16 @@ public class DBManager {
             }
             else
             {
-                Log.d("DBManager","Brisanje: TAG " + tag);
-                String query = "DELETE FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' AND " +
-                        "NfcTag = '" + tag + "'";
+                Log.d("DBManager","Brisanje: TAG " + cleanTag[1]);
+                String query = "DELETE FROM Nfc WHERE NfcTag = '" + cleanTag[1] + "'";
+                Log.d("DBManager ","Query: "+query);
                 Statement statement = connection.createStatement();
-                ResultSet rs = statement.executeQuery(query);
 
-                if(rs.rowDeleted())
+                if(statement.execute(query))
                 {
-                    Log.d("DBManager", "Uspješno izbrisan uređaj");
+                    Log.d("DBManager","UPIT?");
                 }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -467,8 +471,7 @@ public class DBManager {
                 switch (entityType)
                 {
                     case Constants.DATA_TYPE_NFC:
-                        query = "SELECT * FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' AND " +
-                                "NfcTag = '" + value + "'";
+                        query = "SELECT * FROM Nfc WHERE NfcTag = '" + value + "'";
                         break;
                 }
 
