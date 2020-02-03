@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.core.db.User;
 import com.example.core.items.MeasurementItem;
+import com.example.core.items.NFCItem;
 import com.example.core.items.WeightItem;
 import com.example.core.util.Constants;
 
@@ -96,9 +97,94 @@ public class DBManager {
     }
 
     //NFC insert
-    public void InsertData(int dataType, String value)
+    public void InsertData(int dataType, String value, String name)
     {
         CheckConnection();
+
+        try
+        {
+            if(connection==null)
+            {
+                Log.d("DBManager", "Greška prilikom spajanja na bazu");
+            }
+            else
+            {
+                String query = "INSERT INTO Nfc (ID_User, Name, NfcTag) VALUES ('"+AccountManager.getInstance().getUser().getId() + ""
+                        +"','"+name+"','"+value+"')";
+                Statement stat = connection.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                if(rs.rowInserted())
+                {
+                    Log.d("DBManager", "Uspješno dodan uređaj");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<NFCItem> getNFCData()
+    {
+        List<NFCItem> nfcItemList = new ArrayList<>();
+        CheckConnection();
+
+        try
+        {
+            if(connection==null)
+            {
+               Log.d("DBManager", "Greška prilikom spajanja na bazu");
+            }
+            else
+            {
+                String query = "SELECT * FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "'";
+                Statement stat = connection.createStatement();
+                ResultSet rs = stat.executeQuery(query);
+
+                while(rs.next())
+                {
+                    String name = rs.getString("Name");
+                    String tag = rs.getString("NfcTag");
+
+                    NFCItem newItem = new NFCItem(name,tag);
+
+                    nfcItemList.add(newItem);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return nfcItemList;
+    }
+
+    public void DeleteData(String tag)
+    {
+        CheckConnection();
+
+        try
+        {
+            if(connection==null)
+            {
+                Log.d("DBManager","Greška");
+            }
+            else
+            {
+                Log.d("DBManager","Brisanje: TAG " + tag);
+                String query = "DELETE FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' AND " +
+                        "NfcTag = '" + tag + "'";
+                Statement statement = connection.createStatement();
+                ResultSet rs = statement.executeQuery(query);
+
+                if(rs.rowDeleted())
+                {
+                    Log.d("DBManager", "Uspješno izbrisan uređaj");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Register user
@@ -363,6 +449,45 @@ public class DBManager {
             Log.d("DBManager","Greška! "+ ex.getMessage());
         }
         return null;
+    }
+
+    public boolean checkEntity(int entityType, String value)
+    {
+        CheckConnection();
+
+        try
+        {
+            if(connection==null)
+            {
+                Log.d("DBManager","Greška prilikom spajanja na bazu");
+            }
+            else
+            {
+                String query = "";
+                switch (entityType)
+                {
+                    case Constants.DATA_TYPE_NFC:
+                        query = "SELECT * FROM Nfc WHERE ID_User = '" + AccountManager.getInstance().getUser().getId() + "' AND " +
+                                "NfcTag = '" + value + "'";
+                        break;
+                }
+
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+
+                if(resultSet.next())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     public void closeDB()

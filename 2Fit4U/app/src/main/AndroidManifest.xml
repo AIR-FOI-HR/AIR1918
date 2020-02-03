@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,6 +26,12 @@
         </activity>
         <activity android:name=".MainActivity" >
 
+        </activity>
+        <activity android:name=".nfc.NFCScanActivity" >
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
     </application>
 
