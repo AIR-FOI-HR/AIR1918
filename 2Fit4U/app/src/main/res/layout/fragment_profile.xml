@@ -54,7 +54,7 @@
     <!--Izmjerene mjere-->
 
     <TextView
-        android:id="@+id/AddNewMeasure"
+        android:id="@+id/profile_new_measurements"
         android:layout_width="242dp"
         android:layout_height="43dp"
         android:layout_marginTop="548dp"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/MeasureButton"
+        android:id="@+id/profile_weighin"
         android:layout_width="158dp"
         android:layout_height="42dp"
         android:layout_marginTop="608dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/neckLabel"
+        android:id="@+id/profile_neck"
         android:layout_width="64dp"
         android:layout_height="41dp"
         android:layout_marginTop="248dp"
@@ -134,7 +134,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/waistLabel"
+        android:id="@+id/profile_waist"
         android:layout_width="74dp"
         android:layout_height="36dp"
         android:layout_marginTop="252dp"
@@ -166,7 +166,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/hipsLabel"
+        android:id="@+id/profile_hips"
         android:layout_width="70dp"
         android:layout_height="45dp"
         android:layout_marginTop="248dp"
@@ -200,7 +200,7 @@
     <!--CURRENT I GOAL-->
 
     <TextView
-        android:id="@+id/bodyFatLabel"
+        android:id="@+id/profile_bodyfat"
         android:layout_width="69dp"
         android:layout_height="40dp"
         android:layout_marginTop="300dp"
@@ -232,7 +232,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/CurrentWeightBrojKG"
+        android:id="@+id/profile_current_weight"
         android:layout_width="81dp"
         android:layout_height="37dp"
         android:layout_marginTop="424dp"
@@ -264,7 +264,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/GoalWeightBrojKG"
+        android:id="@+id/profile_goal_weight"
         android:layout_width="81dp"
         android:layout_height="37dp"
         android:layout_marginTop="464dp"
