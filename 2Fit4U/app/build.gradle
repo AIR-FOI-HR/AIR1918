@@ -31,6 +31,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.annotation:annotation:1.0.2'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -39,4 +40,15 @@ dependencies {
     // Butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    //expandable recyclerview and cardview
+    def recyclerview_version = "1.0.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
+    implementation "androidx.cardview:cardview:$recyclerview_version"
+    implementation 'com.bignerdranch.android:expandablerecyclerview:3.0.0-RC1'
+
+    implementation project(path: ':core')
+    implementation project(path: ':chartview')
+    implementation project(path: ':tableview')
 }

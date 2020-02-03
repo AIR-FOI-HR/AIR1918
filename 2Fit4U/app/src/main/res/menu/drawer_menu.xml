@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/dynamic_group"
+        android:checkableBehavior="single"
+        android:orderInCategory="0">
+
+        <item android:title="General">
+            <menu>
+                <item
+                    android:id="@+id/menu_profile"
+                    android:icon="@drawable/icon_profile"
+                    android:title="@string/menu_title_profile" />
+                <item
+                    android:id="@+id/menu_weight"
+                    android:icon="@drawable/icon_weight"
+                    android:title="@string/menu_title_weight" />
+                <item
+                    android:id="@+id/menu_measurements"
+                    android:icon="@drawable/icon_measurements"
+                    android:title="@string/menu_title_measurements" />
+                <item
+                    android:id="@+id/menu_nfc"
+                    android:icon="@drawable/icon_nfc"
+                    android:title="@string/menu_title_nfc" />
+
+
+
+
+            </menu>
+        </item>
+
+
+
+    </group>
+</menu>

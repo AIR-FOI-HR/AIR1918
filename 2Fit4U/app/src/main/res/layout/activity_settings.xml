@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".login.LoginActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@drawable/signinbg"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="SETTIGNS"
+            android:textColor="#fff"
+            android:textSize="34dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/acc"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startNeck"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="280dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Neck"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startWaist"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="328dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Waist"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startHips"
+        android:layout_width="68dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="380dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Hips"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startWeight"
+        android:layout_width="86dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="428dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Weight"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.784"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/startHeight"
+        android:layout_width="85dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="476dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Height"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PocetneMjereSettings"
+        android:layout_width="158dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="236dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="POČETNE MJERE:"
+        android:textColor="#222"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/calories"
+        android:layout_width="93dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="368dp"
+        android:background="#0000"
+        android:gravity="right"
+        android:hint="Calories"
+        android:maxLength="12"
+        android:padding="16dp"
+        android:textColor="@color/colortext"
+        android:textColorHint="@color/colorhint"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="82dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="424dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Activity"
+        android:layout_width="93dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="420dp"
+        android:background="#fff"
+        android:gravity="center"
+        android:padding="9dp"
+        android:text="Activity:"
+        android:textColor="#222"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="82dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="283dp"
+        android:text="Male  "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="80dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="206dp"
+        android:text="Female"
+        android:textColor="#222"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/notifikacijet"
+        android:layout_width="159dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="493dp"
+        android:layout_marginEnd="236dp"
+        android:text="NOTIFIKACIJE   "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="116dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

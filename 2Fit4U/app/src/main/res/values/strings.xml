@@ -18,4 +18,49 @@
     <string name="e_mail">E-mail</string>
     <string name="current_weight">Current weight:</string>
     <string name="refresh_weight">Refresh weight</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="login_hint_username">Username</string>
+    <string name="login_text_signin">Sign in</string>
+    <string name="login_no_account">Don\'t have account?</string>
+    <string name="login_create_account">Create one now</string>
+    <string name="login_invalid_credentials">Invalid credentials</string>
+    <string name="register_hint_username">Username</string>
+    <string name="register_hint_email">Email</string>
+    <string name="register_hint_password">Password</string>
+    <string name="register_signup">Sign up</string>
+    <string name="register_button_signin_here">Sign in here</string>
+    <string name="menu_title_profile">Profile</string>
+    <string name="menu_title_weight">Weight entry</string>
+    <string name="menu_title_measurements">Measurements entry</string>
+    <string name="menu_title_nfc">NFC</string>
+    <string name="menu_title_settings">Settings</string>
+    <string name="menu_title_logout">Log out</string>
+    <string name="weight_weigh_in">WEIGH IN</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string name="dialog_new_weight_entry">Add new weight entry</string>
+    <string name="dialog_reject">Cancel</string>
+    <string name="measurements_dialog_title">Add new measurements</string>
+    <string name="measurements_toast_entry">Added new entries!</string>
+    <string name="bundle_nfc_tag">NFC Tag</string>
+    <string name="add_nfc_device">Add NFC device</string>
+    <string name="nfc_dialog_new_entry">Add new NFC device</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="settings_header_user">User</string>
+    <string name="settings_goal_weight">Goal weight</string>
 </resources>

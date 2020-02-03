@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright 2018 The app Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_header_user">
+
+        <EditTextPreference
+            app:key="settingsGoalWeight"
+            app:title="@string/settings_goal_weight"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="settingsCalories"
+            app:title="Calories"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="settingsAge"
+            app:title="Age"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="settingsHeight"
+            app:title="Height"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="BMR"
+            app:entries="@array/settings_activity_entries"
+            app:entryValues="@array/settings_activity_values"
+            app:key="settingsActivityLevel"
+            app:title="Activity level"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="Male"
+            app:entries="@array/settings_gender_entries"
+            app:entryValues="@array/settings_gender_values"
+            app:key="settingsGender"
+            app:title="Gender"
+            app:useSimpleSummaryProvider="true"/>
+
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

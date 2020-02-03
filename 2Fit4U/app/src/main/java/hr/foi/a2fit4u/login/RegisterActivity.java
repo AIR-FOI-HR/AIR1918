@@ -7,37 +7,35 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.example.core.managers.AccountManager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hr.foi.a2fit4u.GetData;
 import hr.foi.a2fit4u.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    @BindView(R.id.edittext_username)
+    @BindView(R.id.register_field_username)
     EditText mTextUsername;
-    @BindView(R.id.edittext_email)
+    @BindView(R.id.register_field_email)
     EditText mTextEmail;
-    @BindView(R.id.edittext_password)
+    @BindView(R.id.register_field_password)
     EditText mTextPassword;
-    @BindView(R.id.edittext_cnf_password)
-    EditText mTextCnfPassword;
 
-    @OnClick(R.id.button_register)
+    @OnClick(R.id.register_button_signup)
     void register(){
-        //TODO implement register
-        GetData getData = new GetData();
+
         Log.d("RegisterActivity", "Registracija u tijeku");
 
-        //if(mTextPassword.equals(mTextCnfPassword)){
-            Log.d("RegisterActivity","Lozinke su jednake");
-            getData.registerUser(mTextUsername.getText().toString(),mTextEmail.getText().toString(),mTextPassword.getText().toString());
-            Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-            startActivity(loginIntent);
-        //}
+        AccountManager.getInstance().registerUser(mTextUsername.getText().toString(),mTextEmail.getText().toString(),mTextPassword.getText().toString());
+        signIn();
 
-
+    }
+    @OnClick(R.id.register_button_signin)
+    void signIn(){
+        Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(loginIntent);
     }
 
     @Override
@@ -47,4 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
     }
+
+
 }
