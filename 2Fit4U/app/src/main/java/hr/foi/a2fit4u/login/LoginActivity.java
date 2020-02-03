@@ -4,23 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.core.managers.AccountManager;
 
-import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import hr.foi.a2fit4u.GetData;
 import hr.foi.a2fit4u.MainActivity;
 import hr.foi.a2fit4u.R;
-import hr.foi.a2fit4u.weight.WeightActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -32,16 +25,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.login_button_signin)
     void login(){
-        /*GetData getData = new GetData();
-        if(getData.checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString())){
-            Log.d("LoginActivity","Uspjesan login");
-
-            Intent weightIntent = new Intent(LoginActivity.this, WeightActivity.class);
-            weightIntent.putExtra("USER_ID",getData.getUserID(mTextUsername.getText().toString()));
-            startActivity(weightIntent);
-
-        }*/
-
         if(AccountManager.getInstance().checkUser(mTextUsername.getText().toString(),mTextPassword.getText().toString()))
         {
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

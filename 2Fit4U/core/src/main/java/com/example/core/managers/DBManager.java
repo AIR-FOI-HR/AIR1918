@@ -211,6 +211,8 @@ public class DBManager {
                     String weight = rs.getString("Value");
                     String date = rs.getString("Date");
 
+                    Log.d("DBManager", "Date: " + date + " Value: " + weight);
+
                     WeightItem newWeightItem = new WeightItem(weight,date);
 
                     weightItemList.add(newWeightItem);
