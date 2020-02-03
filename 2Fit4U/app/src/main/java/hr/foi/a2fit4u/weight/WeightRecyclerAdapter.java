@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.core.items.WeightItem;
+
 import java.util.List;
 
 import hr.foi.a2fit4u.R;
@@ -36,7 +38,7 @@ public class WeightRecyclerAdapter extends RecyclerView.Adapter<WeightRecyclerAd
         WeightItem weightItem = weightItemList.get(position);
 
         holder.weightDate.setText("Date: " + weightItem.getDateValue());
-        holder.weightValue.setText("Weight" + weightItem.getWeightValue());
+        holder.weightValue.setText("Weight: " + weightItem.getWeightValue() + " KG");
     }
 
     @Override

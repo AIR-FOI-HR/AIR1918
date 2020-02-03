@@ -1,4 +1,4 @@
-package hr.foi.a2fit4u.weight;
+package com.example.core.items;
 
 public class WeightItem {
 
