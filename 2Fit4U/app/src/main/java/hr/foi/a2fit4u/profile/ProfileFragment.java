@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.core.managers.DBManager;
 import com.example.core.util.Constants;
+import com.example.core.util.Util;
 
 import hr.foi.a2fit4u.R;
 import hr.foi.a2fit4u.measurements.MeasurementsFragment;
@@ -25,14 +26,14 @@ public class ProfileFragment extends Fragment {
     private TextView textViewHips;
     private TextView textViewNeck;
     private TextView textViewWaist;
-    private TextView textViewBodyFat;
+    private TextView textViewBMI;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
 
-        textViewBodyFat = view.findViewById(R.id.profile_bodyfat);
+        textViewBMI = view.findViewById(R.id.profile_bodyfat);
         textViewCurrentWeight = view.findViewById(R.id.profile_current_weight);
         textViewGoalWeight = view.findViewById(R.id.profile_goal_weight);
         textViewHips = view.findViewById(R.id.profile_hips);
@@ -56,7 +57,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        DisplayBodyFat();
+        DisplayBMI();
         DisplayCurrentMeasurements();
         DisplayCurrentWeight();
         DisplayGoalWeight();
@@ -87,7 +88,7 @@ public class ProfileFragment extends Fragment {
 
     private void DisplayGoalWeight()
     {
-
+        textViewGoalWeight.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_GOAL_WEIGHT));
     }
     private void DisplayCurrentMeasurements()
     {
@@ -96,8 +97,8 @@ public class ProfileFragment extends Fragment {
         textViewHips.setText(DBManager.getInstance().getData(Constants.DATA_TYPE_HIPS));
     }
 
-    private void DisplayBodyFat()
+    private void DisplayBMI()
     {
-
+        textViewBMI.setText(Util.calculateBMI(this.getContext()));
     }
 }

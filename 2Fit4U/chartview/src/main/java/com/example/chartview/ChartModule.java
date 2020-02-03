@@ -13,6 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.core.interfaces.DataPresenter;
+import com.example.core.items.HipItem;
+import com.example.core.items.NeckItem;
+import com.example.core.items.WaistItem;
+import com.example.core.items.WeightItem;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -28,6 +32,10 @@ public class ChartModule extends Fragment implements DataPresenter {
 
     private LineChart mChart;
     private boolean moduleReadyFlag = false;
+    private List<HipItem> hipItemList;
+    private List<WeightItem> weightItemList;
+    private List<NeckItem> neckItemList;
+    private List<WaistItem> waistItemList;
 
     @Nullable
     @Override
@@ -37,13 +45,13 @@ public class ChartModule extends Fragment implements DataPresenter {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        //TODO
-        //Logika za chart ovdje
+
         super.onViewCreated(view, savedInstanceState);
 
         mChart = view.findViewById(R.id.linechart);
         mChart.setDragEnabled(true);
         mChart.setScaleEnabled(false);
+
 
         moduleReadyFlag = true;
         tryToDisplayData();
@@ -65,14 +73,25 @@ public class ChartModule extends Fragment implements DataPresenter {
     }
 
     @Override
-    public void setWeightData(List<String> weights) {
-
+    public void setWeightData(List<WeightItem> weights) {
+        this.weightItemList = weights;
     }
 
     @Override
-    public void setHipData(List<String> hips) {
-
+    public void setHipData(List<HipItem> hips) {
+        this.hipItemList = hips;
     }
+
+    @Override
+    public void setNeckData(List<NeckItem> necks) {
+        this.neckItemList = necks;
+    }
+
+    @Override
+    public void setWaistData(List<WaistItem> waists) {
+        this.waistItemList = waists;
+    }
+
 
     private void tryToDisplayData() {
         if(moduleReadyFlag)
@@ -83,66 +102,121 @@ public class ChartModule extends Fragment implements DataPresenter {
 
     private void displayData() {
 
-        ArrayList<Entry> yValue = new ArrayList<>();
-
-        yValue.add(new Entry(0,60f));
-        yValue.add(new Entry(1,50f));
-        yValue.add(new Entry(2,70f));
-        yValue.add(new Entry(3,30f));
-        yValue.add(new Entry(4,90f));
-
-        LineDataSet set1 = new LineDataSet(yValue,"Data Set 1");
-        set1.setFillAlpha(110);
-        set1.setFillColor(Color.RED);
-        set1.setLineWidth(30);
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
-        dataSets.add(set1);
+        dataSets.add(generateHipDataSet());
+        dataSets.add(generateNeckDataSet());
+        dataSets.add(generateWaistDataSet());
+        dataSets.add(generateWeightDataSet());
 
         LineData data = new LineData(dataSets);
 
-        mChart.setData(generateLineData());
+        mChart.setData(data);
     }
 
-    float getRandom(float range, float start) {
-        return (float) (Math.random() * range) + start;
-    }
-
-    private LineData generateLineData() {
-
-        LineData d = new LineData();
+    private ILineDataSet generateWeightDataSet()
+    {
 
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for (int index = 0; index < 10; index++)
-            entries.add(new Entry(index + 0.5f, getRandom(15, 5)));
+        for(int i=0;i<weightItemList.size();i++)
+        {
+            entries.add(new Entry(i,Float.parseFloat(weightItemList.get(i).getWeightValue())));
+        }
 
-        LineDataSet set = new LineDataSet(entries, "Line DataSet");
-        set.setColor(Color.rgb(240, 238, 70));
+        LineDataSet set = new LineDataSet(entries, "Weight");
+        set.setColor(Color.BLUE);
         set.setLineWidth(2.5f);
-        set.setCircleColor(Color.rgb(240, 238, 70));
+        set.setCircleColor(Color.BLUE);
         set.setCircleRadius(5f);
-        set.setFillColor(Color.rgb(240, 238, 70));
+        set.setFillColor(Color.BLUE);
         set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
         set.setDrawValues(true);
-        set.setValueTextSize(10f);
-        set.setValueTextColor(Color.rgb(240, 238, 70));
+        set.setValueTextSize(12f);
+        set.setValueTextColor(Color.BLACK);
 
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
-        d.addDataSet(set);
 
-        return d;
+        return set;
+    }
+
+    private ILineDataSet generateNeckDataSet()
+    {
+
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        for(int i=0;i<neckItemList.size();i++)
+        {
+            entries.add(new Entry(i,Float.parseFloat(neckItemList.get(i).getNeckValue())));
+        }
+
+        LineDataSet set = new LineDataSet(entries, "Neck");
+        set.setColor(Color.RED);
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.RED);
+        set.setCircleRadius(5f);
+        set.setFillColor(Color.RED);
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setDrawValues(true);
+        set.setValueTextSize(12f);
+        set.setValueTextColor(Color.BLACK);
+
+        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+
+        return set;
+    }
+
+    private ILineDataSet generateHipDataSet()
+    {
+
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        for(int i=0;i<hipItemList.size();i++)
+        {
+            entries.add(new Entry(i,Float.parseFloat(hipItemList.get(i).getHipValue())));
+        }
+
+        LineDataSet set = new LineDataSet(entries, "Hip");
+        set.setColor(Color.GREEN);
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.GREEN);
+        set.setCircleRadius(5f);
+        set.setFillColor(Color.GREEN);
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setDrawValues(true);
+        set.setValueTextSize(12f);
+        set.setValueTextColor(Color.BLACK);
+
+        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+
+        return set;
+    }
+
+    private ILineDataSet generateWaistDataSet()
+    {
+
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        for(int i=0;i<waistItemList.size();i++)
+        {
+            entries.add(new Entry(i,Float.parseFloat(waistItemList.get(i).getWaistValue())));
+        }
+
+        LineDataSet set = new LineDataSet(entries, "Waist");
+        set.setColor(Color.GRAY);
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.GRAY);
+        set.setCircleRadius(5f);
+        set.setFillColor(Color.GRAY);
+        set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+        set.setDrawValues(true);
+        set.setValueTextSize(12f);
+        set.setValueTextColor(Color.BLACK);
+
+        set.setAxisDependency(YAxis.AxisDependency.LEFT);
+
+        return set;
     }
 
 
-
-    @Override
-    public void setNeckData(List<String> necks) {
-
-    }
-
-    @Override
-    public void setWaistData(List<String> waists) {
-
-    }
 }

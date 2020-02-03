@@ -25,9 +25,11 @@ public class DataManager {
 
     public void sendData(DataPresenter module)
     {
-        //TODO
-        // DBManager dohvat podataka iz baze
-        module.setWeightData(new ArrayList<String>());
+
+        module.setWeightData(DBManager.getInstance().getData());
+        module.setWaistData(DBManager.getInstance().getWaistData());
+        module.setHipData(DBManager.getInstance().getHipData());
+        module.setNeckData(DBManager.getInstance().getNeckData());
     }
 
     public void syncData()

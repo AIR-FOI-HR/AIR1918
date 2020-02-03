@@ -7,12 +7,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.core.interfaces.DataPresenter;
+import com.example.core.items.HipItem;
+import com.example.core.items.NeckItem;
+import com.example.core.items.WaistItem;
+import com.example.core.items.WeightItem;
 
 import java.util.List;
 
@@ -23,10 +28,14 @@ import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 public class TableModule extends Fragment implements DataPresenter {
     private boolean moduleReadyFlag = false;
 
-    String[] spaceProbeHeaders;
-    String[][] spaceProbes;
+    String[] tableHeader;
+    String[][] tableContent;
     TableView<String[]> tableView;
     View currentView;
+    private List<HipItem> hipItemList;
+    private List<WeightItem> weightItemList;
+    private List<NeckItem> neckItemList;
+    private List<WaistItem> waistItemList;
 
     @Nullable
     @Override
@@ -38,43 +47,146 @@ public class TableModule extends Fragment implements DataPresenter {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //TODO
-        // Logika za modul ovdje
-        spaceProbeHeaders = new String[]{"No", "Name", "Nesto1", "Destination"};
-        spaceProbes = new String[][]{
-                {"1", "Pioneer", "Chemical", "Jupiter"},
-                {"2", "Voyager", "Plasma", "Andromeda"},
-                {"3", "Casini", "Solar", "Saturn"},
-                {"4", "Spitzer", "Anti-Matter", "Andromeda"},
-                {"5", "Appolo", "Chemical", "Moon"},
-                {"6", "Curiosity", "Solar", "Mars"},
-        };
+
+        tableHeader = new String[]{"Date","Value"};
+
 
         tableView = view.findViewById(R.id.tableview);
         currentView = view;
 
-        //funkcija za postavke
+        tableView.setHeaderBackgroundColor(Color.GREEN);
+        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this.getContext(),tableHeader));
+        tableView.setColumnCount(2);
 
-        moduleReadyFlag = true;
-        tryToDisplayData();
+        Button buttonWeight = view.findViewById(R.id.tableButton1);
+        Button buttonWaist = view.findViewById(R.id.tableButton2);
+        Button buttonHips = view.findViewById(R.id.tableButton3);
+        Button buttonNeck = view.findViewById(R.id.tableButton4);
+
+
+        buttonWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayWeightData();
+            }
+        });
+
+        buttonWaist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayWaistData();
+            }
+        });
+
+        buttonHips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayHipsData();
+            }
+        });
+
+        buttonNeck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayNeckData();
+            }
+        });
 
 
     }
 
-    private void tryToDisplayData() {
-        if(moduleReadyFlag)
+    private void displayWeightData()
+    {
+        tableContent = new String[weightItemList.size()][2];
+
+
+        for(int i=0;i<2;i++)
         {
-            displayData();
+            for(int j=0;j<weightItemList.size();j++)
+            {
+                if(i==0)
+                {
+                    tableContent[j][i] = weightItemList.get(j).getDateValue();
+                }
+                else
+                {
+                    tableContent[j][i] = weightItemList.get(j).getWeightValue();
+                }
+            }
         }
+
+        tableView.setDataAdapter(new SimpleTableDataAdapter(this.getContext(), tableContent));
     }
 
-    private void displayData() {
-        tableView.setHeaderBackgroundColor(Color.BLUE);
-        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this.getContext(),spaceProbeHeaders));
-        tableView.setColumnCount(4);
+    private void displayWaistData()
+    {
+        tableContent = new String[waistItemList.size()][2];
 
-        tableView.setDataAdapter(new SimpleTableDataAdapter(this.getContext(), spaceProbes));
+
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<waistItemList.size();j++)
+            {
+                if(i==0)
+                {
+                    tableContent[j][i] = waistItemList.get(j).getDateValue();
+                }
+                else
+                {
+                    tableContent[j][i] = waistItemList.get(j).getWaistValue();
+                }
+            }
+        }
+
+        tableView.setDataAdapter(new SimpleTableDataAdapter(this.getContext(), tableContent));
     }
+
+    private void displayHipsData()
+    {
+        tableContent = new String[hipItemList.size()][2];
+
+
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<hipItemList.size();j++)
+            {
+                if(i==0)
+                {
+                    tableContent[j][i] = hipItemList.get(j).getDateValue();
+                }
+                else
+                {
+                    tableContent[j][i] = hipItemList.get(j).getHipValue();
+                }
+            }
+        }
+
+        tableView.setDataAdapter(new SimpleTableDataAdapter(this.getContext(), tableContent));
+    }
+
+    private void displayNeckData()
+    {
+        tableContent = new String[neckItemList.size()][2];
+
+
+        for(int i=0;i<2;i++)
+        {
+            for(int j=0;j<neckItemList.size();j++)
+            {
+                if(i==0)
+                {
+                    tableContent[j][i] = neckItemList.get(j).getDateValue();
+                }
+                else
+                {
+                    tableContent[j][i] = neckItemList.get(j).getNeckValue();
+                }
+            }
+        }
+
+        tableView.setDataAdapter(new SimpleTableDataAdapter(this.getContext(), tableContent));
+    }
+
 
     @Override
     public Fragment getFragment() {
@@ -88,26 +200,28 @@ public class TableModule extends Fragment implements DataPresenter {
 
     @Override
     public String getName(Context context) {
-        return "Table module";
+        return "Table view";
     }
 
     @Override
-    public void setWeightData(List<String> weights) {
-
+    public void setWeightData(List<WeightItem> weights) {
+        this.weightItemList = weights;
     }
 
     @Override
-    public void setHipData(List<String> hips) {
-
+    public void setHipData(List<HipItem> hips) {
+        this.hipItemList = hips;
     }
 
     @Override
-    public void setNeckData(List<String> necks) {
-
+    public void setNeckData(List<NeckItem> necks) {
+        this.neckItemList = necks;
     }
 
     @Override
-    public void setWaistData(List<String> waists) {
-
+    public void setWaistData(List<WaistItem> waists) {
+        this.waistItemList = waists;
     }
+
+
 }
