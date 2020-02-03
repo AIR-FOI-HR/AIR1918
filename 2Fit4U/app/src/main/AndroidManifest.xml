@@ -23,7 +23,12 @@
         <activity android:name=".MainActivity" >
 
         </activity>
-        <activity android:name=".nfc.NFCScanActivity" />
+        <activity android:name=".nfc.NFCScanActivity" >
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
